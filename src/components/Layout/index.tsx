@@ -27,6 +27,7 @@ const {
   FOOTER_PROPS,
   META_DESCRIPTION,
   siteUrl,
+  pathPrefix,
 } = require("../../config");
 
 interface LayoutProps {
@@ -67,6 +68,7 @@ const Layout: React.FC<LayoutProps> = ({
   data,
   location,
 }) => {
+  console.log("pathPrefix", pathPrefix);
   let canonicalUrl = "";
   let homepage = false;
   if (typeof window !== "undefined") {

@@ -5,7 +5,6 @@ require("dotenv").config({
 const pagesConfig = require("./src/config");
 
 module.exports = {
-  pathPrefix: process.env.GATSBY_ICDS_PREFIX || "",
   siteMetadata: {
     author: pagesConfig.author,
     siteUrl: pagesConfig.siteUrl,

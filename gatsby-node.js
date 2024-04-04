@@ -132,6 +132,7 @@ const onCreateMarkdownNode = ({ node, actions }) => {
     node.frontmatter.path
   ) {
     slug = pageConfig.pathPrefix + node.frontmatter.path;
+    console.log(`Setting slug to ${slug}`);
   }
 
   createNodeField({
