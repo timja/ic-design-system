@@ -4,6 +4,8 @@ require("dotenv").config({
 
 const pagesConfig = require("./src/config");
 
+console.log(process.env.GATSBY_ICDS_PREFIX);
+
 module.exports = {
   pathPrefix: process.env.GATSBY_ICDS_PREFIX || "",
   siteMetadata: {
