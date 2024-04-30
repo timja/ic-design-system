@@ -258,3 +258,92 @@ export const CELL_OVERRIDES_DATA = [
     age: 45,
   },
 ];
+
+export const COLUMNS_ELEMENTS = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  {
+    key: "lastName",
+    title: "Last name",
+    dataType: "string",
+  },
+  {
+    key: "age",
+    title: "Age",
+    dataType: "number",
+  },
+  {
+    key: "actions",
+    title: "Actions",
+    dataType: "element",
+    columnAlignment: { horizontal: "center" },
+  },
+];
+
+export const DATA_ELEMENTS = [
+  {
+    firstName: {
+      data: "Joe",
+      href: "#",
+    },
+    lastName: "Bloggs",
+    age: 30,
+    actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
+  },
+  {
+    firstName: "Sarah",
+    lastName: "Smith",
+    age: 28,
+    actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
+  },
+  {
+    firstName: "Mark",
+    lastName: "Owens",
+    age: 45,
+    actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
+  },
+];
+
+export const DATA_REACT_ELEMENTS = [
+  {
+    firstName: {
+      data: "Joe",
+      href: "https://www.example.com",
+    },
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  {
+    firstName: "Sarah",
+    lastName: "Smith",
+    age: 28,
+    jobTitle: "Analyst",
+    address: "2 Main Street, Town, Country, Postcode",
+  },
+  {
+    firstName: "Mark",
+    lastName: "Owens",
+    age: 45,
+    jobTitle: "Team Lead",
+    address: "12 Key Street, Town, Country, Postcode",
+  },
+  {
+    firstName: "Naomi",
+    lastName: "Thomas",
+    age: 32,
+    jobTitle: "Developer",
+    address: "8 Side Street, Town, Country, Postcode",
+  },
+  {
+    firstName: "Luke",
+    lastName: "Ashford",
+    age: 18,
+    jobTitle: "Junior Developer",
+    address: "5 New Street, Town, Country, Postcode",
+  },
+];
