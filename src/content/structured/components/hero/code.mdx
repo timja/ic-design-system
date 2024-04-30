@@ -1,7 +1,7 @@
 ---
 path: "/components/hero/code"
 
-date: "2023-10-25"
+date: "2024-05-02"
 
 title: "Hero"
 
@@ -25,24 +25,45 @@ import { IcHero, IcButton, IcSearchBar, IcCard } from "@ukic/react";
 
 export const snippets = [
   {
-    language: "Web component",
-    snippet: `<ic-hero
+    technology: "Web component",
+    snippets: {
+      short: `<ic-hero
   heading="Everything I brew, I brew it for you"
   subheading="This news is hot off the French press."
 >
   <ic-button variant="primary" slot="interaction">Explore</ic-button>
-  <ic-button variant="secondary" slot="interaction">Check out our new drinks</ic-button>
+  <ic-button variant="secondary" slot="interaction"
+    >Check out our new drinks</ic-button
+  >
 </ic-hero>`,
+      long: `{shortCode}`,
+    },
   },
   {
-    language: "React",
-    snippet: `<IcHero
+    technology: "React",
+    snippets: {
+      short: `<IcHero
   heading="Everything I brew, I brew it for you"
   subheading="This news is hot off the French press."
 >
-  <IcButton variant="primary" slot="interaction">Explore</IcButton>
-  <IcButton variant="secondary" slot="interaction">Check out our new drinks</IcButton>
+  <IcButton variant="primary" slot="interaction">
+    Explore
+  </IcButton>
+  <IcButton variant="secondary" slot="interaction">
+    Check out our new drinks
+  </IcButton>
 </IcHero>`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `{shortCode}`,
+        },
+        {
+          language: "Javascript",
+          snippet: `{shortCode}`,
+        },
+      ],
+    },
   },
 ];
 
@@ -70,24 +91,62 @@ export const snippets = [
 
 export const snippetsCentre = [
   {
-    language: "Web component",
-    snippet: `<ic-hero
+    technology: "Web component",
+    snippets: {
+      short: `<ic-hero
   heading="Everything I brew, I brew it for you"
-  subheading="This news is hot off the French press." aligned="center"
+  subheading="This news is hot off the French press."
 >
   <ic-button variant="primary" slot="interaction">Explore</ic-button>
-  <ic-button variant="secondary" slot="interaction">Check out our new drinks</ic-button>
+  <ic-button variant="secondary" slot="interaction"
+    >Check out our new drinks</ic-button
+  >
 </ic-hero>`,
+      long: `{shortCode}`,
+    },
   },
   {
-    language: "React",
-    snippet: `<IcHero
+    technology: "React",
+    snippets: {
+      short: `<ic-hero
   heading="Everything I brew, I brew it for you"
-  subheading="This news is hot off the French press." aligned="center"
+  subheading="This news is hot off the French press."
+  aligned="center"
 >
-  <IcButton variant="primary" slot="interaction">Explore</IcButton>
-  <IcButton variant="secondary" slot="interaction">Check out our new drinks</IcButton>
+  <ic-button variant="primary" slot="interaction">Explore</ic-button>
+  <ic-button variant="secondary" slot="interaction"
+    >Check out our new drinks</ic-button
+  >
+</ic-hero>`,
+      long: `{shortCode}`,
+    },
+  },
+  {
+    technology: "React",
+    snippets: {
+      short: `<IcHero
+  heading="Everything I brew, I brew it for you"
+  subheading="This news is hot off the French press."
+  aligned="center"
+>
+  <IcButton variant="primary" slot="interaction">
+    Explore
+  </IcButton>
+  <IcButton variant="secondary" slot="interaction">
+    Check out our new drinks
+  </IcButton>
 </IcHero>`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `{shortCode}`,
+        },
+        {
+          language: "Javascript",
+          snippet: `{shortCode}`,
+        },
+      ],
+    },
   },
 ];
 
@@ -110,24 +169,49 @@ export const snippetsCentre = [
 
 export const snippetsContentCentre = [
   {
-    language: "Web component",
-    snippet: `<ic-hero
+    technology: "Web component",
+    snippets: {
+      short: `<ic-hero
   heading="Everything I brew, I brew it for you"
-  subheading="This news is hot off the French press." aligned="center" content-aligned="center"
+  subheading="This news is hot off the French press."
+  aligned="center"
+  content-aligned="center"
 >
   <ic-button variant="primary" slot="interaction">Explore</ic-button>
-  <ic-button variant="secondary" slot="interaction">Check out our new drinks</ic-button>
+  <ic-button variant="secondary" slot="interaction"
+    >Check out our new drinks</ic-button
+  >
 </ic-hero>`,
+      long: `{shortCode}`,
+    },
   },
   {
-    language: "React",
-    snippet: `<IcHero
+    technology: "React",
+    snippets: {
+      short: `<IcHero
   heading="Everything I brew, I brew it for you"
-  subheading="This news is hot off the French press." aligned="center" contentAligned="center"
+  subheading="This news is hot off the French press."
+  aligned="center"
+  contentAligned="center"
 >
-  <IcButton variant="primary" slot="interaction">Explore</IcButton>
-  <IcButton variant="secondary" slot="interaction">Check out our new drinks</IcButton>
+  <IcButton variant="primary" slot="interaction">
+    Explore
+  </IcButton>
+  <IcButton variant="secondary" slot="interaction">
+    Check out our new drinks
+  </IcButton>
 </IcHero>`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `{shortCode}`,
+        },
+        {
+          language: "Javascript",
+          snippet: `{shortCode}`,
+        },
+      ],
+    },
   },
 ];
 
@@ -151,8 +235,9 @@ export const snippetsContentCentre = [
 
 export const snippetsSmall = [
   {
-    language: "Web component",
-    snippet: `<ic-hero
+    technology: "Web component",
+    snippets: {
+      short: `<ic-hero
   heading="New coffee launches 14 September 2022"
   subheading="Brand new flavours now available! Irresistible. Caramel. Decadence. Sugary."
   size="small"
@@ -160,17 +245,35 @@ export const snippetsSmall = [
   <ic-button variant="primary" slot="interaction" size="small">Order now</ic-button>
   <ic-button variant="secondary" slot="interaction" size="small">Submit new flavour</ic-button>
 </ic-hero>`,
+      long: `{shortCode}`,
+    },
   },
   {
-    language: "React",
-    snippet: `<IcHero
+    technology: "React",
+    snippets: {
+      short: `<IcHero
   heading="New coffee launches 14 September 2022"
   subheading="Brand new flavours now available! Irresistible. Caramel. Decadence. Sugary."
   size="small"
 >
-  <IcButton variant="primary" slot="interaction" size="small">Order now</IcButton>
-  <IcButton variant="secondary" slot="interaction" size="small">Submit new flavour</IcButton>
+  <IcButton variant="primary" slot="interaction" size="small">
+    Order now
+  </IcButton>
+  <IcButton variant="secondary" slot="interaction" size="small">
+    Submit new flavour
+  </IcButton>
 </IcHero>`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `{shortCode}`,
+        },
+        {
+          language: "Javascript",
+          snippet: `{shortCode}`,
+        },
+      ],
+    },
   },
 ];
 
@@ -193,19 +296,27 @@ export const snippetsSmall = [
 
 export const snippetsSecondHeadingSearch = [
   {
-    language: "Web component",
-    snippet: `<ic-hero
+    technology: "Web component",
+    snippets: {
+      short: `<ic-hero
   heading="Everything I brew, I brew it for you"
   subheading="This news is hot off the French press."
-  secondary-heading="The classics" 
+  secondary-heading="The classics"
   secondary-subheading="Try our original flavours."
 >
-  <ic-search-bar slot="interaction" label="Search for coffee" hide-label="true"></ic-search-bar>
+  <ic-search-bar
+    slot="interaction"
+    label="Search for coffee"
+    hide-label="true"
+  ></ic-search-bar>
 </ic-hero>`,
+      long: `{shortCode}`,
+    },
   },
   {
-    language: "React",
-    snippet: `<IcHero
+    technology: "React",
+    snippets: {
+      short: `<IcHero
   heading="Everything I brew, I brew it for you"
   subheading="This news is hot off the French press."
   secondaryHeading="The classics" 
@@ -213,6 +324,17 @@ export const snippetsSecondHeadingSearch = [
 >
   <IcSearchBar slot="interaction" label="Search for coffee" hideLabel/>
 </IcHero>`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `{shortCode}`,
+        },
+        {
+          language: "Javascript",
+          snippet: `{shortCode}`,
+        },
+      ],
+    },
   },
 ];
 
@@ -231,8 +353,9 @@ export const snippetsSecondHeadingSearch = [
 
 export const snippetsCard = [
   {
-    language: "Web component",
-    snippet: `<ic-hero 
+    technology: "Web component",
+    snippets: {
+      short: `<ic-hero 
   heading="Everything I brew, I brew it for you" 
   subheading="This news is hot off the French press." 
   card-heading="Out now" 
@@ -247,17 +370,21 @@ export const snippetsCard = [
     slot="secondary"
     class="hero-card"
   ></ic-card>
-  <style>
-    .hero-card {
+</ic-hero>
+  `,
+      long: `.hero-card {
       color: var(--ic-theme-text);
       width: 300px;
     }
   </style>
-</ic-hero>`,
+  <body>
+    {shortCode}`,
+    },
   },
   {
-    language: "React",
-    snippet: `<IcHero 
+    technology: "React",
+    snippets: {
+      short: `<IcHero 
   heading="Everything I brew, I brew it for you" 
   subheading="This news is hot off the French press." 
   cardHeading="Out now" 
@@ -270,13 +397,38 @@ export const snippetsCard = [
     heading="Out now"
     message="Try our new strawberry infused tea."
     slot="secondary"
-    class="hero-card"
-    style={{
-      color: "var(--ic-theme-text)",
-      width: "300px"
-    }}
+    className={classes.heroCard}
   />
 </IcHero>`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `const useStyles = createUseStyles({
+  heroCard: {
+    color: "var(--ic-theme-text)",
+    width: "300px",
+  },
+});
+const classes = useStyles();
+return (
+  {shortCode}
+)`,
+        },
+        {
+          language: "Javascript",
+          snippet: `const useStyles = createUseStyles({
+  heroCard: {
+    color: "var(--ic-theme-text)",
+    width: "300px",
+  },
+});
+const classes = useStyles();
+return (
+  {shortCode}
+)`,
+        },
+      ],
+    },
   },
 ];
 
@@ -311,8 +463,9 @@ export const snippetsCard = [
 
 export const snippetsImage = [
   {
-    language: "Web component",
-    snippet: `<ic-hero
+    technology: "Web component",
+    snippets: {
+      short: `<ic-hero
   heading="Everything I brew, I brew it for you"
   subheading="This news is hot off the French press."
   aligned="full-width"
@@ -321,9 +474,7 @@ export const snippetsImage = [
   <ic-button variant="secondary" slot="interaction">Check out our new drinks</ic-button>
   <svg
     slot="secondary"
-    style={{
-      width: "300px",
-    }}
+    class="card-image"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 1600 900"
   >
@@ -342,10 +493,18 @@ export const snippetsImage = [
     <polygon fill="#880088" points="943 900 1210 900 971 687" />
   </svg>
 </ic-hero>`,
+      long: `.card-image {
+  width: 300px;
+}
+</style>
+<body>
+  {shortCode}`,
+    },
   },
   {
-    language: "React",
-    snippet: `<IcHero
+    technology: "React",
+    snippets: {
+      short: `<IcHero
     heading="Everything I brew, I brew it for you"
     subheading="This news is hot off the French press."
     aligned="full-width"
@@ -354,9 +513,7 @@ export const snippetsImage = [
     <IcButton variant="secondary" slot="interaction">Check out our new drinks</IcButton>
     <SlottedSVG
       slot="secondary"
-      style={{
-        width: "300px",
-      }}
+      className={classes.cardImage}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1600 900"
     >
@@ -375,6 +532,33 @@ export const snippetsImage = [
       <polygon fill="#880088" points="943 900 1210 900 971 687" />
     </SlottedSVG>
   </IcHero>`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `const useStyles = createUseStyles({
+  cardImage: {
+    width: "300px",
+  },
+});
+const classes = useStyles();
+return (
+  {shortCode}
+)`,
+        },
+        {
+          language: "Javascript",
+          snippet: `const useStyles = createUseStyles({
+  cardImage: {
+    width: "300px",
+  },
+});
+const classes = useStyles();
+return (
+  {shortCode}
+)`,
+        },
+      ],
+    },
   },
 ];
 

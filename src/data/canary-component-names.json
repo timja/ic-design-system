@@ -1,0 +1,19 @@
+{
+  "canaryReactComponentNames": [
+    "IcDataTable",
+    "IcDateInput",
+    "IcDatePicker",
+    "IcMenuWithMulti",
+    "IcPaginationBar",
+    "IcSelectWithMulti"
+  ],
+  "canaryWebComponentsNames": [
+    "ic-data-table",
+    "ic-date-input",
+    "ic-date-picker",
+    "ic-menu-with-multi",
+    "ic-pagination",
+    "ic-pagination-bar",
+    "ic-select-with-multi"
+  ]
+}

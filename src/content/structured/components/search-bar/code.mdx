@@ -1,7 +1,7 @@
 ---
 path: "/components/search-bar/code"
 
-date: "2024-02-02"
+date: "2024-05-02"
 
 title: "Search bar"
 
@@ -25,39 +25,69 @@ import { IcSearchBar, IcTypography } from "@ukic/react";
 
 export const snippets = [
   {
-    language: "Web component",
-    snippet: `<ic-search-bar label="What is your favourite coffee?"></ic-search-bar>
-<script>
-  const searchBar = document.querySelector("ic-search-bar");
-  searchBar.options = [
-    { label: "Espresso", value: "espresso" },
-    { label: "Double Espresso", value: "doubleespresso" },
-    { label: "Flat White", value: "flatwhite" },
-    { label: "Cappuccino", value: "cappuccino" },
-    { label: "Americano", value: "americano" },
-    { label: "Mocha", value: "mocha" },
-  ];
-  searchBar.addEventListener('icChange', (ev) => console.log(ev.detail.value));
-  searchBar.addEventListener('icSubmitSearch', (ev) => console.log(ev.detail.value))
-  placeholder="Start typing to search…"
-</script>`,
+    technology: "Web component",
+    snippets: {
+      short: `<ic-search-bar label="What is your favourite coffee?"></ic-search-bar>`,
+      long: `{shortCode}
+    <script>
+      const searchBar = document.querySelector("ic-search-bar");
+      searchBar.options = [
+        { label: "Espresso", value: "espresso" },
+        { label: "Double Espresso", value: "doubleespresso" },
+        { label: "Flat White", value: "flatwhite" },
+        { label: "Cappuccino", value: "cappuccino" },
+        { label: "Americano", value: "americano" },
+        { label: "Mocha", value: "mocha" },
+      ];
+      searchBar.addEventListener('icChange', (ev) => console.log(ev.detail.value));
+      searchBar.addEventListener('icSubmitSearch', (ev) => console.log(ev.detail.value))
+      placeholder="Start typing to search…"
+    </script>`,
+    },
   },
   {
-    language: "React",
-    snippet: `<IcSearchBar 
+    technology: "React",
+    snippets: {
+      short: `<IcSearchBar 
   label="What is your favourite coffee?"
-  options={[
-    { label: "Espresso", value: "espresso" },
-    { label: "Double Espresso", value: "doubleespresso" },
-    { label: "Flat White", value: "flatwhite" },
-    { label: "Cappuccino", value: "cappuccino" },
-    { label: "Americano", value: "americano" },
-    { label: "Mocha", value: "mocha" },
-  ]}
+  options={options}
   onIcChange={(ev) => console.log(ev.detail.value)}
   onIcSubmitSearch={(ev) => console.log(ev.detail.value)}
   placeholder="Start typing to search…"
 />`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `const options = [
+    { label: "Espresso", value: "espresso" },
+    { label: "Double Espresso", value: "doubleespresso" },
+    { label: "Flat White", value: "flatwhite" },
+    { label: "Cappuccino", value: "cappuccino" },
+    { label: "Americano", value: "americano" },
+    { label: "Mocha", value: "mocha" },
+  ]
+  
+  return (
+    {shortCode}
+  )`,
+        },
+        {
+          language: "Javascript",
+          snippet: `const options = [
+    { label: "Espresso", value: "espresso" },
+    { label: "Double Espresso", value: "doubleespresso" },
+    { label: "Flat White", value: "flatwhite" },
+    { label: "Cappuccino", value: "cappuccino" },
+    { label: "Americano", value: "americano" },
+    { label: "Mocha", value: "mocha" },
+  ]
+  
+  return (
+    {shortCode}
+  )`,
+        },
+      ],
+    },
   },
 ];
 
@@ -88,8 +118,10 @@ export const snippets = [
 
 export const optionsNoFiltering = [
   {
-    language: "Web component",
-    snippet: `<ic-search-bar placeholder="Start typing to search…"
+    technology: "Web component",
+    snippets: {
+      short: `<ic-search-bar
+  placeholder="Start typing to search…"
   label="What is your favourite coffee?"
   disable-filter="true"
 >
@@ -97,34 +129,68 @@ export const optionsNoFiltering = [
 <br>
 <ic-typography>
   All options will be displayed as you type
-</ic-typography>
-<script>
-  document.querySelector("ic-search-bar").options = [
-    { label: "Espresso", value: "espresso" },
-    { label: "Double Espresso", value: "doubleespresso" },
-    { label: "Flat White", value: "flatwhite" },
-    { label: "Cappuccino", value: "cappuccino" },
-    { label: "Americano", value: "americano" },
-    { label: "Mocha", value: "mocha" },
-  ];
-</script>`,
+</ic-typography>`,
+      long: `{shortCode}
+    <script>
+      document.querySelector("ic-search-bar").options = [
+        { label: "Espresso", value: "espresso" },
+        { label: "Double Espresso", value: "doubleespresso" },
+        { label: "Flat White", value: "flatwhite" },
+        { label: "Cappuccino", value: "cappuccino" },
+        { label: "Americano", value: "americano" },
+        { label: "Mocha", value: "mocha" },
+      ];
+    </script>`,
+    },
   },
   {
-    language: "React",
-    snippet: `<IcSearchBar placeholder="Start typing to search…"
+    technology: "React",
+    snippets: {
+      short: `<IcSearchBar
+  placeholder="Start typing to search…"
   label="What is your favourite coffee?"
   disableFilter
-  options={[
-    { label: "Espresso", value: "espresso" },
-    { label: "Double Espresso", value: "doubleespresso" },
-    { label: "Flat White", value: "flatwhite" },
-    { label: "Cappuccino", value: "cappuccino" },
-    { label: "Americano", value: "americano" },
-    { label: "Mocha", value: "mocha" },
-  ]}
+  options={options}
 />
 <br/>
 <IcTypography>All options will be displayed as you type</IcTypography>`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `const options = [
+    { label: "Espresso", value: "espresso" },
+    { label: "Double Espresso", value: "doubleespresso" },
+    { label: "Flat White", value: "flatwhite" },
+    { label: "Cappuccino", value: "cappuccino" },
+    { label: "Americano", value: "americano" },
+    { label: "Mocha", value: "mocha" },
+  ]
+  
+  return (
+  <>
+    {shortCode}
+  </>
+  )`,
+        },
+        {
+          language: "Javascript",
+          snippet: `const options = [
+    { label: "Espresso", value: "espresso" },
+    { label: "Double Espresso", value: "doubleespresso" },
+    { label: "Flat White", value: "flatwhite" },
+    { label: "Cappuccino", value: "cappuccino" },
+    { label: "Americano", value: "americano" },
+    { label: "Mocha", value: "mocha" },
+  ]
+  
+  return (
+  <>
+    {shortCode}
+  </>
+  )`,
+        },
+      ],
+    },
   },
 ];
 
@@ -155,37 +221,69 @@ export const optionsNoFiltering = [
 
 export const withHelperText = [
   {
-    language: "Web component",
-    snippet: `<ic-search-bar placeholder="Start typing to search…"
+    technology: "Web component",
+    snippets: {
+      short: `<ic-search-bar
+  placeholder="Start typing to search…"
   label="What is your favourite coffee?"
   helper-text="Coffee options will be displayed as you type."
 >
-</ic-search-bar>
-<script>
-  document.querySelector("ic-search-bar").options = [
-    { label: "Espresso", value: "espresso" },
-    { label: "Double Espresso", value: "doubleespresso" },
-    { label: "Flat White", value: "flatwhite" },
-    { label: "Cappuccino", value: "cappuccino" },
-    { label: "Americano", value: "americano" },
-    { label: "Mocha", value: "mocha" },
-  ];
-</script>`,
+</ic-search-bar>`,
+      long: `{shortCode}
+    <script>
+      document.querySelector("ic-search-bar").options = [
+        { label: "Espresso", value: "espresso" },
+        { label: "Double Espresso", value: "doubleespresso" },
+        { label: "Flat White", value: "flatwhite" },
+        { label: "Cappuccino", value: "cappuccino" },
+        { label: "Americano", value: "americano" },
+        { label: "Mocha", value: "mocha" },
+      ];
+    </script>`,
+    },
   },
   {
-    language: "React",
-    snippet: `<IcSearchBar placeholder="Start typing to search…"
+    technology: "React",
+    snippets: {
+      short: `<IcSearchBar
+  placeholder="Start typing to search…"
   label="What is your favourite coffee?"
   helperText="Coffee options will be displayed as you type."
-  options={[
+  options={options}
+/>`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `const options = [
     { label: "Espresso", value: "espresso" },
     { label: "Double Espresso", value: "doubleespresso" },
     { label: "Flat White", value: "flatwhite" },
     { label: "Cappuccino", value: "cappuccino" },
     { label: "Americano", value: "americano" },
     { label: "Mocha", value: "mocha" },
-  ]}
-/>`,
+  ]
+  
+  return (
+    {shortCode}
+  )`,
+        },
+        {
+          language: "Javascript",
+          snippet: `const options = [
+    { label: "Espresso", value: "espresso" },
+    { label: "Double Espresso", value: "doubleespresso" },
+    { label: "Flat White", value: "flatwhite" },
+    { label: "Cappuccino", value: "cappuccino" },
+    { label: "Americano", value: "americano" },
+    { label: "Mocha", value: "mocha" },
+  ]
+  
+  return (
+    {shortCode}
+  )`,
+        },
+      ],
+    },
   },
 ];
 
@@ -209,36 +307,70 @@ export const withHelperText = [
 
 export const withHiddenLabel = [
   {
-    language: "Web component",
-    snippet: `<ic-search-bar placeholder="Start typing to search…" label="What is your favourite coffee?" hide-label="true"
+    technology: "Web component",
+    snippets: {
+      short: `<ic-search-bar
+  placeholder="Start typing to search…"
+  label="What is your favourite coffee?"
+  hide-label="true"
 >
-</ic-search-bar>
-<script>
-  const searchBar = document.querySelector("ic-search-bar");
-  searchBar.options = [
-    { label: "Espresso", value: "espresso" },
-    { label: "Double Espresso", value: "doubleespresso" },
-    { label: "Flat White", value: "flatwhite" },
-    { label: "Cappuccino", value: "cappuccino" },
-    { label: "Americano", value: "americano" },
-    { label: "Mocha", value: "mocha" },
-  ];
-</script>`,
+</ic-search-bar>`,
+      long: `{shortCode}
+    <script>
+      const searchBar = document.querySelector("ic-search-bar");
+      searchBar.options = [
+        { label: "Espresso", value: "espresso" },
+        { label: "Double Espresso", value: "doubleespresso" },
+        { label: "Flat White", value: "flatwhite" },
+        { label: "Cappuccino", value: "cappuccino" },
+        { label: "Americano", value: "americano" },
+        { label: "Mocha", value: "mocha" },
+      ];
+    </script>`,
+    },
   },
   {
-    language: "React",
-    snippet: `<IcSearchBar placeholder="Start typing to search…"
+    technology: "React",
+    snippets: {
+      short: `<IcSearchBar
+  placeholder="Start typing to search…"
   label="What is your favourite coffee?"
   hideLabel
-  options={[
+  options={options}
+/>`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `const options = [
     { label: "Espresso", value: "espresso" },
     { label: "Double Espresso", value: "doubleespresso" },
     { label: "Flat White", value: "flatwhite" },
     { label: "Cappuccino", value: "cappuccino" },
     { label: "Americano", value: "americano" },
     { label: "Mocha", value: "mocha" },
-  ]}
-/>`,
+  ]
+  
+  return (
+    {shortCode}
+  )`,
+        },
+        {
+          language: "Javascript",
+          snippet: `const options = [
+    { label: "Espresso", value: "espresso" },
+    { label: "Double Espresso", value: "doubleespresso" },
+    { label: "Flat White", value: "flatwhite" },
+    { label: "Cappuccino", value: "cappuccino" },
+    { label: "Americano", value: "americano" },
+    { label: "Mocha", value: "mocha" },
+  ]
+  
+  return (
+    {shortCode}
+  )`,
+        },
+      ],
+    },
   },
 ];
 
@@ -262,36 +394,67 @@ export const withHiddenLabel = [
 
 export const disabled = [
   {
-    language: "Web component",
-    snippet: `<ic-search-bar label="What is your favourite coffee?" disabled="true"
->
-</ic-search-bar>
-<script>
-  const searchBar = document.querySelector("ic-search-bar");
-  searchBar.options = [
-    { label: "Espresso", value: "espresso" },
-    { label: "Double Espresso", value: "doubleespresso" },
-    { label: "Flat White", value: "flatwhite" },
-    { label: "Cappuccino", value: "cappuccino" },
-    { label: "Americano", value: "americano" },
-    { label: "Mocha", value: "mocha" },
-  ];
-</script>`,
+    technology: "Web component",
+    snippets: {
+      short: `<ic-search-bar
+  label="What is your favourite coffee?"
+  disabled="true">
+</ic-search-bar>`,
+      long: `{shortCode}
+    <script>
+      const searchBar = document.querySelector("ic-search-bar");
+      searchBar.options = [
+        { label: "Espresso", value: "espresso" },
+        { label: "Double Espresso", value: "doubleespresso" },
+        { label: "Flat White", value: "flatwhite" },
+        { label: "Cappuccino", value: "cappuccino" },
+        { label: "Americano", value: "americano" },
+        { label: "Mocha", value: "mocha" },
+      ];
+    </script>`,
+    },
   },
   {
-    language: "React",
-    snippet: `<IcSearchBar
+    technology: "React",
+    snippets: {
+      short: `<IcSearchBar
   label="What is your favourite coffee?"
   disabled
-  options={[
+  options={options}
+/>`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `const options = [
     { label: "Espresso", value: "espresso" },
     { label: "Double Espresso", value: "doubleespresso" },
     { label: "Flat White", value: "flatwhite" },
     { label: "Cappuccino", value: "cappuccino" },
     { label: "Americano", value: "americano" },
     { label: "Mocha", value: "mocha" },
-  ]}
-/>`,
+  ]
+  
+  return (
+    {shortCode}
+  )`,
+        },
+        {
+          language: "Javascript",
+          snippet: `const options = [
+    { label: "Espresso", value: "espresso" },
+    { label: "Double Espresso", value: "doubleespresso" },
+    { label: "Flat White", value: "flatwhite" },
+    { label: "Cappuccino", value: "cappuccino" },
+    { label: "Americano", value: "americano" },
+    { label: "Mocha", value: "mocha" },
+  ]
+  
+  return (
+    {shortCode}
+  )`,
+        },
+      ],
+    },
   },
 ];
 
@@ -314,36 +477,67 @@ export const disabled = [
 
 export const sizeSmall = [
   {
-    language: "Web component",
-    snippet: `<ic-search-bar label="What is your favourite coffee?" size="small"
->
-</ic-search-bar>
-<script>
-  const searchBar = document.querySelector("ic-search-bar");
-  searchBar.options = [
-    { label: "Espresso", value: "espresso" },
-    { label: "Double Espresso", value: "doubleespresso" },
-    { label: "Flat White", value: "flatwhite" },
-    { label: "Cappuccino", value: "cappuccino" },
-    { label: "Americano", value: "americano" },
-    { label: "Mocha", value: "mocha" },
-  ];
-</script>`,
+    technology: "Web component",
+    snippets: {
+      short: `<ic-search-bar
+  label="What is your favourite coffee?"
+  size="small">
+</ic-search-bar>`,
+      long: `{shortCode}
+    <script>
+      const searchBar = document.querySelector("ic-search-bar");
+      searchBar.options = [
+        { label: "Espresso", value: "espresso" },
+        { label: "Double Espresso", value: "doubleespresso" },
+        { label: "Flat White", value: "flatwhite" },
+        { label: "Cappuccino", value: "cappuccino" },
+        { label: "Americano", value: "americano" },
+        { label: "Mocha", value: "mocha" },
+      ];
+    </script>`,
+    },
   },
   {
-    language: "React",
-    snippet: `<IcSearchBar
+    technology: "React",
+    snippets: {
+      short: `<IcSearchBar
   label="What is your favourite coffee?"
   size="small"
-  options={[
+  options={options}
+/>`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `const options = [
     { label: "Espresso", value: "espresso" },
     { label: "Double Espresso", value: "doubleespresso" },
     { label: "Flat White", value: "flatwhite" },
     { label: "Cappuccino", value: "cappuccino" },
     { label: "Americano", value: "americano" },
     { label: "Mocha", value: "mocha" },
-  ]}
-/>`,
+  ]
+  
+  return (
+    {shortCode}
+  )`,
+        },
+        {
+          language: "Javascript",
+          snippet: `const options = [
+    { label: "Espresso", value: "espresso" },
+    { label: "Double Espresso", value: "doubleespresso" },
+    { label: "Flat White", value: "flatwhite" },
+    { label: "Cappuccino", value: "cappuccino" },
+    { label: "Americano", value: "americano" },
+    { label: "Mocha", value: "mocha" },
+  ]
+  
+  return (
+    {shortCode}
+  )`,
+        },
+      ],
+    },
   },
 ];
 
@@ -368,43 +562,59 @@ This example shows how to filter data asynchronously when the value in the input
 
 export const customFiltering = [
   {
-    language: "Web component",
-    snippet: `<ic-search-bar placeholder="Start typing to search…"
+    technology: "Web component",
+    snippets: {
+      short: `<ic-search-bar
+  placeholder="Start typing to search…"
   label="What is your favourite coffee?" 
   debounce="300" 
   disable-filter="true">
-</ic-search-bar>
-<script>
-  var mockData = [
-    { label: "Espresso", value: "espresso" },
-    { label: "Double Espresso", value: "doubleespresso" },
-    { label: "Flat White", value: "flatwhite" },
-    { label: "Cappuccino", value: "cappucino" },
-    { label: "Americano", value: "americano" },
-    { label: "Mocha", value: "mocha" },
-  ];
-  var select = document.querySelector("ic-search-bar");
-  select.addEventListener("icChange", function (event) {
-    const searchFor = event.detail.value;
-    if (searchFor.length > 1) {
-      mockAPI = (query) => {
-        filteredResults = mockData.filter((item) =>
-          item.label.toLowerCase().includes(query.toLowerCase())
-        );
-        return new Promise((resolve) => {
-          setTimeout(() => resolve(filteredResults), 1000)
-        });
-      };
-      mockAPI(searchFor).then((newResults) => { select.options = newResults });
-    } else {
-      select.options = [];
-    }
-  });
-</script>`,
+</ic-search-bar>`,
+      long: `{shortCode}
+    <script>
+      var mockData = [
+        { label: "Espresso", value: "espresso" },
+        { label: "Double Espresso", value: "doubleespresso" },
+        { label: "Flat White", value: "flatwhite" },
+        { label: "Cappuccino", value: "cappucino" },
+        { label: "Americano", value: "americano" },
+        { label: "Mocha", value: "mocha" },
+      ];
+      var select = document.querySelector("ic-search-bar");
+      select.addEventListener("icChange", function (event) {
+        const searchFor = event.detail.value;
+        if (searchFor.length > 1) {
+          mockAPI = (query) => {
+            filteredResults = mockData.filter((item) =>
+              item.label.toLowerCase().includes(query.toLowerCase())
+            );
+            return new Promise((resolve) => {
+              setTimeout(() => resolve(filteredResults), 1000)
+            });
+          };
+          mockAPI(searchFor).then((newResults) => { select.options = newResults });
+        } else {
+          select.options = [];
+        }
+      });
+    </script>`,
+    },
   },
   {
-    language: "React",
-    snippet: `const mockData = [
+    technology: "React",
+    snippets: {
+      short: `<IcSearchBar
+  placeholder="Start typing to search…"
+  label="What is your favourite coffee?"
+  debounce="300"
+  disableFilter
+  options={results}
+  onIcChange={changeHandler}
+/>`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `const mockData = [
   { label: "Espresso", value: "espresso" },
   { label: "Double Espresso", value: "doubleespresso" },
   { label: "Flat White", value: "flatwhite" },
@@ -430,15 +640,42 @@ const changeHandler = (event) =>{
   }
 }
 return(
-<>
-  <IcSearchBar placeholder="Start typing to search…" label="What is your favourite coffee?"
-    debounce="300"
-    disableFilter
-    options={results}
-    onIcChange={changeHandler}
-  />
-</>
+  {shortCode}
 );`,
+        },
+        {
+          language: "Javascript",
+          snippet: `const mockData = [
+  { label: "Espresso", value: "espresso" },
+  { label: "Double Espresso", value: "doubleespresso" },
+  { label: "Flat White", value: "flatwhite" },
+  { label: "Cappuccino", value: "cappucino" },
+  { label: "Americano", value: "americano" },
+  { label: "Mocha", value: "mocha" },
+];
+const [results, setResults] = useState([]);
+const changeHandler = (event) =>{
+  const searchFor = event.detail.value;
+  if (searchFor.length > 1) {
+    const mockAPI = (query) => {
+      const filteredResults = mockData.filter((item) =>
+        item.label.toLowerCase().includes(query.toLowerCase())
+      );
+      return new Promise((resolve) => {
+        setTimeout(() => resolve(filteredResults), 1000);
+      });
+    };
+    mockAPI(searchFor).then((newResults) => setResults(newResults));
+  } else {
+    setResults([]);
+  }
+}
+return(
+  {shortCode}
+);`,
+        },
+      ],
+    },
   },
 ];
 
