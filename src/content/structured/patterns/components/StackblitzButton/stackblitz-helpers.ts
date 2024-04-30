@@ -5,26 +5,34 @@ const designSystemPackageJson = require("../../../../../../package.json");
 
 export const createIndexTsx = (
   componentName: string,
-  isCodeSnippet?: boolean
+  isCodeSnippet?: boolean,
+  codeSnippet?: string | undefined
 ) => {
   const component = isCodeSnippet
     ? startCase(componentName.replace(/\(.*?\)/g, "")).replace(/\s/g, "")
     : componentName;
   return `import { StrictMode } from 'react';
-        import { createRoot } from 'react-dom/client';
-        import { BrowserRouter } from 'react-router-dom';
-  
-        import ${component} from './app';
-  
-        const root = createRoot(document.getElementById('root'));
-  
-        root.render(
-        <StrictMode>
-            <BrowserRouter>
-              <${component} />
-            </BrowserRouter>
-        </StrictMode>
-      );`;
+import { createRoot } from 'react-dom/client';${
+    codeSnippet && codeSnippet.includes("react-router-dom")
+      ? ""
+      : `\nimport { BrowserRouter } from 'react-router-dom';`
+  }
+
+import ${component} from './app';
+
+const root = createRoot(document.getElementById('root'));
+
+root.render(
+  <StrictMode>
+    ${
+      codeSnippet && codeSnippet.includes("react-router-dom")
+        ? `<${component} />`
+        : `<BrowserRouter>
+      <${component} />
+    </BrowserRouter>`
+    }
+  </StrictMode>
+);`;
 };
 
 export const createReactIndexHTML = (ext: string) => `<html lang="en">
@@ -118,7 +126,9 @@ export default defineConfig({
 `;
 
 export const createWebComponentsIndexHTML = (codeSnippet: string) => {
-  // write a function that checks the code snippet for instances of class="..." and add the relevant styling to the style tag
+  if (codeSnippet.includes('<html lang="en">')) {
+    return codeSnippet;
+  }
 
   const addStyling = (snippet: string) => {
     const styling: string[] = [];
@@ -178,11 +188,20 @@ export const createWebComponentsIndexHTML = (codeSnippet: string) => {
         "}"
       );
     }
-
-    styling[0] = `\t${styling[0]}`;
+    if (styling.length > 1) styling[0] = `\t${styling[0]}`;
     if (styling.length === 0) return "";
     return `\n${styling.join("\n\t")}`;
   };
+
+  let styling = "<body>";
+  const addedStyling = addStyling(codeSnippet);
+
+  if (addedStyling !== "") {
+    styling = `<style>\t${addedStyling}\n</style>\n<body>`;
+  } else if (codeSnippet.includes("</style>")) {
+    styling = "<style>";
+  }
+
   return `<html lang="en">
   <head>
     <title>Home</title>
@@ -207,21 +226,18 @@ export const createWebComponentsIndexHTML = (codeSnippet: string) => {
       crossorigin="anonymous"
     />
   </head>
-  <style>\t${addStyling(codeSnippet)}${
-    /<\/style/.test(codeSnippet) ? "" : `\n  </style>\n  <body>`
-  }
+  ${styling}
     ${codeSnippet}
     <script defer>
       import('https://unpkg.com/@ukic/web-components/loader').then((module) => {
         module.defineCustomElements();
       });
-      // The ICDS has types available if your JavaScript framework allows for use with Typescript
+      // The ICDS has types available if your JavaScript framework allows for use with TypeScript
       // Below is an example of how to import an ICDS type
       // import type { IcAlignment } from 'https://unpkg.com/@ukic/web-components/';
     </script>
   </body>
-</html>
-  `;
+</html>`;
 };
 
 export const createReactAppTsx = (
@@ -230,6 +246,9 @@ export const createReactAppTsx = (
   fileExtension: "jsx" | "tsx",
   isPattern: boolean = false
 ): string => {
+  if (codeSnippet.includes("@ukic/react")) {
+    return codeSnippet;
+  }
   // Helper function to find uses of ICDS components and MDI in code snippet
   const getImports = (
     tag: string | undefined,
@@ -288,6 +307,17 @@ export const createReactAppTsx = (
   // Check if codeSnippet contains "createUseStyles" from 'react-jss'
   const containsCreateUseStyles = /createUseStyles\(\{/.test(codeSnippet);
 
+  // Check if codeSnippet contains any React Router imports
+  const getReactRouterImports = (code: string) => {
+    const imports = ["MemoryRouter", "Route", "Routes", "NavLink"];
+    const foundImports = imports.filter((importName) =>
+      code.includes(importName)
+    );
+    return foundImports;
+  };
+
+  const reactRouterImports = getReactRouterImports(codeSnippet);
+
   // Check if codeSnippet contains any React hooks
   const getReactHooks = (code: string) => {
     const hooks = ["useState", "useRef", "useEffect"];
@@ -312,7 +342,7 @@ export const createReactAppTsx = (
   reactImportStatement += " from 'react';";
 
   // Conditionally render "return(" in the returned output string
-  const returnStatement = containsReturn ? "" : "return(";
+  const returnStatement = containsReturn ? "" : "return (";
 
   let importedICDSComponents;
   if (sortedICDSComponents.length > 3) {
@@ -322,33 +352,38 @@ export const createReactAppTsx = (
     importedICDSComponents = `${sortedICDSComponents.join(", ")} `;
   }
 
-  return `${reactImportStatement}
+  return `${reactImportStatement}${
+    reactRouterImports.length > 0
+      ? `\nimport { ${reactRouterImports.join(", ")} } from 'react-router-dom';`
+      : ""
+  }
 import { ${importedICDSComponents}} from '@ukic/react';
 ${
   fileExtension === "tsx" && isPattern && getIcTypes.length > 0
     ? `import type { ${getIcTypes.join(", ")} } from '@ukic/web-components';`
     : ""
-}  
-${
-  sortedMDIcons.length > 0
-    ? `import { ${
-        sortedMDIcons.length > 3
-          ? `\n${sortedMDIcons.join(",\n  ")}\n`
-          : `${sortedMDIcons.join(", ")} `
-      }} from '@mdi/js';`
-    : ""
-}
-${
-  containsCreateUseStyles
-    ? `import { createUseStyles } from 'react-jss';
+}  ${
+    sortedMDIcons.length > 0
+      ? `\nimport { ${
+          sortedMDIcons.length > 3
+            ? `\n${sortedMDIcons.join(",\n  ")}\n`
+            : `${sortedMDIcons.join(", ")} `
+        }} from '@mdi/js';`
+      : ""
+  }${
+    containsCreateUseStyles
+      ? `\nimport { createUseStyles } from 'react-jss';
 `
-    : ""
-}
+      : ""
+  }
 import "@ukic/fonts/dist/fonts.css";
 import "@ukic/react/dist/core/core.css";
 import "@ukic/react/dist/core/normalize.css";
 
 const ${component}${fileExtension === "tsx" ? `: FC` : ""} = () => {
-  ${returnStatement}${codeSnippet}${containsReturn ? "" : `\n)`}};
+\t${returnStatement}
+${containsReturn ? "" : `\t\t`}${codeSnippet}${
+    containsReturn ? "" : `\n    );`
+  }\n};
 export default ${component};`;
 };

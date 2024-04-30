@@ -23,12 +23,27 @@ import { IcButton } from "@ukic/react";
 
 export const snippets = [
   {
-    language: "Web component",
-    snippet: `<ic-back-to-top target="main" />`,
+    technology: "Web component",
+    snippets: {
+      short: `<ic-back-to-top target="main" />`,
+      long: `{shortCode}`,
+    },
   },
   {
-    language: "React",
-    snippet: `<IcBackToTop target="main" />`,
+    technology: "React",
+    snippets: {
+      short: `<IcBackToTop target="main" />`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `{shortCode}`,
+        },
+        {
+          language: "Javascript",
+          snippet: `{shortCode}`,
+        },
+      ],
+    },
   },
 ];
 

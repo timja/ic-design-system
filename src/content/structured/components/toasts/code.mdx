@@ -30,34 +30,58 @@ import { useRef } from "react";
 
 export const defaultSnippet = [
   {
-    language: "Web component",
-    snippet: `<ic-button onclick="displayToast()">Display toast</ic-button>
+    technology: "Web component",
+    snippets: {
+      short: `<ic-button onclick="displayToast()">Display toast</ic-button>
 <ic-toast-region>
   <ic-toast id="toast-01" heading="Your coffee is ready"></ic-toast>
-</ic-toast-region>
-<script>
-  const toastRegion = document.querySelector("ic-toast-region");
-  function displayToast() {
-    var toast = document.querySelector("#toast-01");
-    toastRegion.openToast = toast;
-  }
-</script>`,
+</ic-toast-region>`,
+      long: `{shortCode}
+    <script>
+      const toastRegion = document.querySelector("ic-toast-region");
+      function displayToast() {
+        var toast = document.querySelector("#toast-01");
+        toastRegion.openToast = toast;
+      }
+    </script>`,
+    },
   },
   {
-    language: "React",
-    snippet: `const toastRegionEl = useRef(null);
-const toastEl = useRef(null);
-const handleClick = () => {
-  toastRegionEl.current.openToast = toastEl.current;
-}
-return (
-  <>
-    <IcButton onClick={handleClick}>Display toast component</IcButton>
-    <IcToastRegion ref={toastRegionEl}>
-      <IcToast heading='Your coffee is ready' ref={toastEl} />
-    </IcToastRegion>
-  </>
-)`,
+    technology: "React",
+    snippets: {
+      short: `<IcButton onClick={handleClick}>Display toast component</IcButton>
+<IcToastRegion ref={toastRegionEl}>
+  <IcToast heading='Your coffee is ready' ref={toastEl} />
+</IcToastRegion>`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `const toastRegionEl = useRef(null);
+  const toastEl = useRef(null);
+  const handleClick = () => {
+    toastRegionEl.current.openToast = toastEl.current;
+  }
+  return (
+    <>
+      {shortCode}
+    </>
+  )`,
+        },
+        {
+          language: "Javascript",
+          snippet: `const toastRegionEl = useRef(null);
+  const toastEl = useRef(null);
+  const handleClick = () => {
+    toastRegionEl.current.openToast = toastEl.current;
+  }
+  return (
+    <>
+      {shortCode}
+    </>
+  )`,
+        },
+      ],
+    },
   },
 ];
 
@@ -103,8 +127,9 @@ To view the toasts queuing in the following example, click each button to open a
 
 export const queuingSnippet = [
   {
-    language: "Web component",
-    snippet: `<ic-button onclick="handleClick()">Display default toast</ic-button>
+    technology: "Web component",
+    snippets: {
+      short: `<ic-button onclick="handleClick()">Display default toast</ic-button>
 <ic-button onclick="handleErrorClick()">Display error toast</ic-button>
 <ic-button onclick="handleAutoDismissClick()">Display auto dismiss toast</ic-button>
 <ic-toast-region>
@@ -127,10 +152,13 @@ export const queuingSnippet = [
     toastRegion.openToast = toast;
   }
 </script>`,
+      long: `{shortCode}`,
+    },
   },
   {
-    language: "React",
-    snippet: `const toastRegionEl = useRef(null);
+    technology: "React",
+    snippets: {
+      short: `const toastRegionEl = useRef(null);
 const toastEl = useRef(null);
 const errorToastEl = useRef(null);
 const autoDismissToastEl = useRef(null);
@@ -157,6 +185,17 @@ return (
     </IcToastRegion>
   </>
 );`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `{shortCode}`,
+        },
+        {
+          language: "Javascript",
+          snippet: `{shortCode}`,
+        },
+      ],
+    },
   },
 ];
 
@@ -209,8 +248,9 @@ export const QueuingToast = () => {
 
 export const withVariantSnippet = [
   {
-    language: "Web component",
-    snippet: `<ic-button onclick="displayToast()">Display success toast</ic-button>
+    technology: "Web component",
+    snippets: {
+      short: `<ic-button onclick="displayToast()">Display success toast</ic-button>
 <ic-toast-region>
   <ic-toast variant="success" id="toast-02" heading="Your coffee is ready" message="Please dismiss and collect"></ic-toast>
 </ic-toast-region>
@@ -221,10 +261,13 @@ export const withVariantSnippet = [
     toastRegion.openToast = successToast;
   }
 </script>`,
+      long: `{shortCode}`,
+    },
   },
   {
-    language: "React",
-    snippet: `const toastRegionEl = useRef(null);
+    technology: "React",
+    snippets: {
+      short: `const toastRegionEl = useRef(null);
 const toastEl = useRef(null);
 const handleClick = () => {
  toastRegionEl.current.openToast = toastEl.current;
@@ -242,6 +285,17 @@ return (
     </IcToastRegion>
   </>
 )`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `{shortCode}`,
+        },
+        {
+          language: "Javascript",
+          snippet: `{shortCode}`,
+        },
+      ],
+    },
   },
 ];
 
@@ -274,8 +328,9 @@ export const WithVariantToast = () => {
 
 export const withMultilineSnippet = [
   {
-    language: "Web component",
-    snippet: `<ic-button onclick="displayToast()">Display multi-line toast</ic-button>
+    technology: "Web component",
+    snippets: {
+      short: `<ic-button onclick="displayToast()">Display multi-line toast</ic-button>
 <ic-toast-region>
   <ic-toast id="toast-03" heading="Your coffee is ready" message="Please dismiss and come to collect your delicious coffee from the barista right away before it gets cold."></ic-toast>
 </ic-toast-region>
@@ -286,10 +341,13 @@ export const withMultilineSnippet = [
     toastRegion.openToast = multilineToast;
   }
 </script>`,
+      long: `{shortCode}`,
+    },
   },
   {
-    language: "React",
-    snippet: `const toastRegionEl = useRef(null);
+    technology: "React",
+    snippets: {
+      short: `const toastRegionEl = useRef(null);
 const toastEl = useRef(null);
 const handleClick = () => {
   toastRegionEl.current.openToast = toastEl.current;
@@ -306,6 +364,17 @@ return (
     </IcToastRegion>
   </>
 )`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `{shortCode}`,
+        },
+        {
+          language: "Javascript",
+          snippet: `{shortCode}`,
+        },
+      ],
+    },
   },
 ];
 
@@ -337,8 +406,9 @@ export const MultilineToast = () => {
 
 export const slottedActionsSnippet = [
   {
-    language: "Web component",
-    snippet: `<ic-button onclick="displayButtonToast()">Display slotted buttons toast</ic-button>
+    technology: "Web component",
+    snippets: {
+      short: `<ic-button onclick="displayButtonToast()">Display slotted buttons toast</ic-button>
 <ic-button onclick="displayLinkToast()">Display slotted buttons toast</ic-button>
 <ic-toast-region>
   <ic-toast id="toast-04" heading="Your order could not be placed" message="Please try again" variant='warning'>
@@ -359,10 +429,13 @@ export const slottedActionsSnippet = [
     toastRegion.openToast = slottedLinkToast;
   }
 </script>`,
+      long: `{shortCode}`,
+    },
   },
   {
-    language: "React",
-    snippet: `const toastRegionEl = useRef(null);
+    technology: "React",
+    snippets: {
+      short: `const toastRegionEl = useRef(null);
 const buttonToastEl = useRef(null);
 const linkToastEl = useRef(null);
 const handleButtonToastClick = () => {
@@ -397,6 +470,17 @@ return (
     </IcToastRegion>
   </>
 )`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `{shortCode}`,
+        },
+        {
+          language: "Javascript",
+          snippet: `{shortCode}`,
+        },
+      ],
+    },
   },
 ];
 
@@ -454,8 +538,9 @@ export const SlottedActionsToast = () => {
 
 export const autoDismissSnippet = [
   {
-    language: "Web component",
-    snippet: `<ic-button onclick="displayToast()">Display auto-dismiss toast</ic-button>
+    technology: "Web component",
+    snippets: {
+      short: `<ic-button onclick="displayToast()">Display auto-dismiss toast</ic-button>
 <ic-toast-region>
   <ic-toast id="toast-06" heading="Your coffee is ready" dismiss-mode="automatic" auto-dismiss-timeout="10000" variant='info'></ic-toast>
 </ic-toast-region>
@@ -466,10 +551,13 @@ export const autoDismissSnippet = [
     toastRegion.openToast = toast;
   }
 </script>`,
+      long: `{shortCode}`,
+    },
   },
   {
-    language: "React",
-    snippet: `const toastRegionEl = useRef(null);
+    technology: "React",
+    snippets: {
+      short: `const toastRegionEl = useRef(null);
 const toastEl = useRef(null);
 const handleClick = () => {
   toastRegionEl.current.openToast = toastEl.current;
@@ -482,6 +570,17 @@ return (
     </IcToastRegion>
   </>
 )`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `{shortCode}`,
+        },
+        {
+          language: "Javascript",
+          snippet: `{shortCode}`,
+        },
+      ],
+    },
   },
 ];
 
@@ -515,8 +614,9 @@ export const AutoDismissToast = () => {
 
 export const customIconAriaLabelsSnippet = [
   {
-    language: "Web component",
-    snippet: `<ic-button onclick="displayToast()">Display auto-dismiss toast</ic-button>
+    technology: "Web component",
+    snippets: {
+      short: `<ic-button onclick="displayToast()">Display auto-dismiss toast</ic-button>
 <ic-toast-region>
   <ic-toast id="toast-07" heading="Your coffee is ready" variant='neutral' neutral-icon-aria-label="It is time to collect your coffee" dismiss-button-aria-label="Dismiss me">
     <svg xmlns="http://www.w3.org/2000/svg" slot='neutral-icon' viewBox="0 0 24 24">
@@ -532,10 +632,13 @@ export const customIconAriaLabelsSnippet = [
     toastRegion.openToast = toast;
   }
 </script>`,
+      long: `{shortCode}`,
+    },
   },
   {
-    language: "React",
-    snippet: `const toastRegionEl = useRef(null);
+    technology: "React",
+    snippets: {
+      short: `const toastRegionEl = useRef(null);
 const toastEl = useRef(null);
 const handleClick = () => {
   toastRegionEl.current.openToast = toastEl.current;
@@ -559,6 +662,17 @@ return (
     </IcToastRegion>
   </>
 )`,
+      long: [
+        {
+          language: "Typescript",
+          snippet: `{shortCode}`,
+        },
+        {
+          language: "Javascript",
+          snippet: `{shortCode}`,
+        },
+      ],
+    },
   },
 ];
 
