@@ -29,7 +29,17 @@ export const snippetsDefault = [
 <ic-status-tag label="Success" status="success"></ic-status-tag>
 <ic-status-tag label="Warning" status="warning"></ic-status-tag>
 <ic-status-tag label="Error" status="danger"></ic-status-tag>`,
-      long: `{shortCode}`,
+      long: `.parent-container {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 16px;
+    }
+  </style>
+  <body>
+    <div class="parent-container">
+      {shortCode}
+    </div>`,
     },
   },
   {
@@ -42,11 +52,37 @@ export const snippetsDefault = [
       long: [
         {
           language: "Typescript",
-          snippet: `{shortCode}`,
+          snippet: `const useStyles = createUseStyles({
+  parentContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "8px",
+    padding: "16px",
+  },
+});
+const classes = useStyles();
+return (
+  <div className={classes.parentContainer}>
+    {shortCode}
+  </div>
+)`,
         },
         {
           language: "Javascript",
-          snippet: `{shortCode}`,
+          snippet: `const useStyles = createUseStyles({
+  parentContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "8px",
+    padding: "16px",
+  },
+});
+const classes = useStyles();
+return (
+  <div className={classes.parentContainer}>
+    {shortCode}
+  </div>
+)`,
         },
       ],
     },
@@ -72,11 +108,37 @@ export const snippetsEmphasis = [
   {
     technology: "Web component",
     snippets: {
-      short: `<ic-status-tag label="Neutral" status="neutral" variant="outlined"></ic-status-tag>
-<ic-status-tag label="Success" status="success" variant="outlined"></ic-status-tag>
-<ic-status-tag label="Warning" status="warning" variant="outlined"></ic-status-tag>
-<ic-status-tag label="Error" status="danger" variant="outlined"></ic-status-tag>`,
-      long: `{shortCode}`,
+      short: `<ic-status-tag
+  label="Neutral"
+  status="neutral"
+  variant="outlined"
+></ic-status-tag>
+<ic-status-tag
+  label="Success"
+  status="success"
+  variant="outlined"
+></ic-status-tag>
+<ic-status-tag
+  label="Warning"
+  status="warning"
+  variant="outlined"
+></ic-status-tag>
+<ic-status-tag
+  label="Error"
+  status="danger"
+  variant="outlined"
+></ic-status-tag>`,
+      long: `.parent-container {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 16px;
+    }
+  </style>
+  <body>
+    <div class="parent-container">
+      {shortCode}
+    </div>`,
     },
   },
   {
@@ -89,11 +151,37 @@ export const snippetsEmphasis = [
       long: [
         {
           language: "Typescript",
-          snippet: `{shortCode}`,
+          snippet: `const useStyles = createUseStyles({
+  parentContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "8px",
+    padding: "16px",
+  },
+});
+const classes = useStyles();
+return (
+  <div className={classes.parentContainer}>
+    {shortCode}
+  </div>
+)`,
         },
         {
           language: "Javascript",
-          snippet: `{shortCode}`,
+          snippet: `const useStyles = createUseStyles({
+  parentContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "8px",
+    padding: "16px",
+  },
+});
+const classes = useStyles();
+return (
+  <div className={classes.parentContainer}>
+    {shortCode}
+  </div>
+)`,
         },
       ],
     },
@@ -113,11 +201,37 @@ export const snippetsSmall = [
   {
     technology: "Web component",
     snippets: {
-      short: `<ic-status-tag label="Neutral" status="neutral" size="small"></ic-status-tag>
-<ic-status-tag label="Success" status="success" size="small"></ic-status-tag>
-<ic-status-tag label="Warning" status="warning" size="small"></ic-status-tag>
-<ic-status-tag label="Error" status="danger" size="small"></ic-status-tag>`,
-      long: `{shortCode}`,
+      short: `<ic-status-tag
+  label="Neutral"
+  status="neutral"
+  size="small"
+></ic-status-tag>
+<ic-status-tag
+  label="Success"
+  status="success"
+  size="small"
+></ic-status-tag>
+<ic-status-tag
+  label="Warning"
+  status="warning"
+  size="small"
+></ic-status-tag>
+<ic-status-tag
+  label="Error" 
+  status="danger" 
+  size="small"
+></ic-status-tag>`,
+      long: `.parent-container {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 16px;
+    }
+  </style>
+  <body>
+    <div class="parent-container">
+      {shortCode}
+    </div>`,
     },
   },
   {
@@ -130,11 +244,37 @@ export const snippetsSmall = [
       long: [
         {
           language: "Typescript",
-          snippet: `{shortCode}`,
+          snippet: `const useStyles = createUseStyles({
+  parentContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "8px",
+    padding: "16px",
+  },
+});
+const classes = useStyles();
+return (
+  <div className={classes.parentContainer}>
+    {shortCode}
+  </div>
+)`,
         },
         {
           language: "Javascript",
-          snippet: `{shortCode}`,
+          snippet: `const useStyles = createUseStyles({
+  parentContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "8px",
+    padding: "16px",
+  },
+});
+const classes = useStyles();
+return (
+  <div className={classes.parentContainer}>
+    {shortCode}
+  </div>
+)`,
         },
       ],
     },

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import sdk from "@stackblitz/sdk";
 import {
   createIndexTsx,
@@ -19,7 +19,7 @@ export type StackblitzProps = {
   isJSX?: boolean;
 };
 
-const StackblitzButton: React.FC<StackblitzProps> = ({
+const StackblitzButton: FC<StackblitzProps> = ({
   codeSnippet,
   isWebComponents,
   projectTitle,
@@ -64,7 +64,7 @@ const StackblitzButton: React.FC<StackblitzProps> = ({
     }
 
     files["package.json"] = JSON.stringify(
-      packageJson(projectTitle, isWebComponentsInternal, ext),
+      packageJson(projectTitle, isWebComponentsInternal, ext, codeSnippet),
       null,
       2
     );

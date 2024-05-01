@@ -196,8 +196,7 @@ export const snippets = [
   </SlottedSVG>
   <div 
     slot="interaction-controls" 
-    style={{ display: "flex", gap: "16px" 
-    }}>
+    className={classes.interactionArea}>
     <IcButton variant="primary">Accept</IcButton>
     <IcButton variant="secondary">Cancel</IcButton>
   </div>
@@ -208,11 +207,29 @@ export const snippets = [
       long: [
         {
           language: "Typescript",
-          snippet: `{shortCode}`,
+          snippet: `const useStyles = createUseStyles({
+    interactionArea: {
+      display: "flex",
+      gap: "16px",
+    },
+  });
+  const classes = useStyles();
+  return (
+    {shortCode}
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `{shortCode}`,
+          snippet: `const useStyles = createUseStyles({
+    interactionArea: {
+      display: "flex",
+      gap: "16px",
+    },
+  });
+  const classes = useStyles();
+  return (
+    {shortCode}
+  )`,
         },
       ],
     },
@@ -791,7 +808,7 @@ export const topImage = [
     }
     </style>
     <body>
-    {shortCode}`,
+      {shortCode}`,
     },
   },
   {
@@ -1138,12 +1155,18 @@ export const interactionControls = [
     <path d="M0 0h24v24H0V0z" fill="none" />
     <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
   </svg>
-  <div slot="interaction-controls" style="display:flex;gap:16px;">
+  <div slot="interaction-controls" class="interaction-area">
     <ic-button variant="primary">Accept</ic-button>
     <ic-button variant="secondary">Cancel</ic-button>
   </div>
 </ic-card>`,
-      long: `{shortCode}`,
+      long: `.interaction-area {
+      display: flex;
+      gap: 16px;
+    }
+  </style>
+  <body>
+    {shortCode}`,
     },
   },
   {
@@ -1165,7 +1188,7 @@ export const interactionControls = [
     <path d="M0 0h24v24H0V0z" fill="none" />
     <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
   </SlottedSVG>
-  <div slot="interaction-controls" style={{display: "flex", gap: "16px"}}>
+  <div slot="interaction-controls" className={classes.interactionArea}>
     <IcButton variant="primary">Accept</IcButton>
     <IcButton variant="secondary">Cancel</IcButton>
   </div>
@@ -1173,11 +1196,29 @@ export const interactionControls = [
       long: [
         {
           language: "Typescript",
-          snippet: `{shortCode}`,
+          snippet: `const useStyles = createUseStyles({
+    interactionArea: {
+      display: "flex",
+      gap: "16px",
+    },
+  });
+  const classes = useStyles();
+  return (
+    {shortCode}
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `{shortCode}`,
+          snippet: `const useStyles = createUseStyles({
+    interactionArea: {
+      display: "flex",
+      gap: "16px",
+    },
+  });
+  const classes = useStyles();
+  return (
+    {shortCode}
+  )`,
         },
       ],
     },
@@ -1229,7 +1270,7 @@ export const expandable = [
   >
      <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z"/>
   </svg>
-  <div slot="interaction-controls" style="display:flex;gap:16px;">
+  <div slot="interaction-controls" class="interaction-area">
     <ic-button variant="primary">Accept</ic-button>
     <ic-button variant="secondary">Cancel</ic-button>
   </div>
@@ -1237,7 +1278,13 @@ export const expandable = [
     To cancel your order click cancel.
   </ic-typography>
 </ic-card>`,
-      long: `{shortCode}`,
+      long: `.interaction-area {
+      display: flex;
+      gap: 16px;
+    }
+  </style>
+  <body>
+    {shortCode}`,
     },
   },
   {
@@ -1259,7 +1306,7 @@ export const expandable = [
   >
      <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z"/>
   </SlottedSVG>
-  <div slot="interaction-controls" style={{display: "flex", gap: "16px"}}>
+  <div slot="interaction-controls" className={classes.interactionArea}>
     <IcButton variant="primary">Accept</IcButton>
     <IcButton variant="secondary">Cancel</IcButton>
   </div>
@@ -1270,11 +1317,29 @@ export const expandable = [
       long: [
         {
           language: "Typescript",
-          snippet: `{shortCode}`,
+          snippet: `const useStyles = createUseStyles({
+    interactionArea: {
+      display: "flex",
+      gap: "16px",
+    },
+  });
+  const classes = useStyles();
+  return (
+    {shortCode}
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `{shortCode}`,
+          snippet: `const useStyles = createUseStyles({
+    interactionArea: {
+      display: "flex",
+      gap: "16px",
+    },
+  });
+  const classes = useStyles();
+  return (
+    {shortCode}
+  )`,
         },
       ],
     },

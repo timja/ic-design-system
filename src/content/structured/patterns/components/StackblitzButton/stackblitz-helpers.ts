@@ -1,7 +1,20 @@
 import kebabCase from "lodash.kebabcase";
 import startCase from "lodash.startcase";
+import data from "../../../../../data/canary-component-names.json";
 
 const designSystemPackageJson = require("../../../../../../package.json");
+
+const { canaryReactComponentNames } = data;
+
+const getCanaryReactImports = (codeSnippet: string | undefined) => {
+  if (codeSnippet) {
+    const imports = canaryReactComponentNames.filter((name) =>
+      codeSnippet.includes(name)
+    );
+    return imports;
+  }
+  return [];
+};
 
 export const createIndexTsx = (
   componentName: string,
@@ -50,7 +63,8 @@ export const createReactIndexHTML = (ext: string) => `<html lang="en">
 export const packageJson = (
   projectTitle: string,
   isWebComponents: boolean,
-  fileExtension: "jsx" | "tsx"
+  fileExtension: "jsx" | "tsx",
+  codeSnippet: string | undefined
 ) => {
   const dependenciesArray = isWebComponents
     ? []
@@ -69,6 +83,12 @@ export const packageJson = (
         ["react-jss", "^10.10.0"],
         ["react-router-dom", "^6.22.0"],
       ];
+  if (getCanaryReactImports(codeSnippet).length > 0) {
+    dependenciesArray.splice(1, 0, [
+      "@ukic/canary-react",
+      `${designSystemPackageJson.dependencies["@ukic/canary-react"]}`,
+    ]);
+  }
 
   if (fileExtension === "tsx") {
     dependenciesArray.splice(3, 0, [
@@ -129,6 +149,14 @@ export const createWebComponentsIndexHTML = (codeSnippet: string) => {
   if (codeSnippet.includes('<html lang="en">')) {
     return codeSnippet;
   }
+
+  const { canaryWebComponentsNames } = data;
+  const getCanaryWebComponentsImports = () => {
+    const imports = canaryWebComponentsNames.filter((name) =>
+      codeSnippet.includes(name)
+    );
+    return imports.length > 0;
+  };
 
   const addStyling = (snippet: string) => {
     const styling: string[] = [];
@@ -202,6 +230,19 @@ export const createWebComponentsIndexHTML = (codeSnippet: string) => {
     styling = "<style>";
   }
 
+  const formatLines = (snippet: string = codeSnippet) => {
+    const lines = String(snippet).split("\n");
+    const newLines = lines ? [...lines] : [];
+    if (newLines.length > 0) {
+      for (let i = 1; i < newLines.length; i += 1) {
+        newLines[i] = `\t${newLines[i]}`;
+      }
+    }
+    return newLines.join("\n");
+  };
+
+  const formattedCodeSnippet = formatLines();
+
   return `<html lang="en">
   <head>
     <title>Home</title>
@@ -227,11 +268,17 @@ export const createWebComponentsIndexHTML = (codeSnippet: string) => {
     />
   </head>
   ${styling}
-    ${codeSnippet}
+    ${formattedCodeSnippet}
     <script defer>
       import('https://unpkg.com/@ukic/web-components/loader').then((module) => {
         module.defineCustomElements();
-      });
+      });${
+        getCanaryWebComponentsImports()
+          ? `\n\t  import('https://unpkg.com/@ukic/canary-web-components/loader').then((module) => {
+        module.defineCustomElements();
+      })`
+          : ""
+      }
       // The ICDS has types available if your JavaScript framework allows for use with TypeScript
       // Below is an example of how to import an ICDS type
       // import type { IcAlignment } from 'https://unpkg.com/@ukic/web-components/';
@@ -249,6 +296,7 @@ export const createReactAppTsx = (
   if (codeSnippet.includes("@ukic/react")) {
     return codeSnippet;
   }
+
   // Helper function to find uses of ICDS components and MDI in code snippet
   const getImports = (
     tag: string | undefined,
@@ -264,13 +312,21 @@ export const createReactAppTsx = (
       regex = new RegExp(`<${tag}[^>]*>`, "g");
     }
 
-    return isPatternInternal
+    let matches = isPatternInternal
       ? codeSnippet.match(regex) || []
       : (codeSnippet.match(regex) || []).map((match) =>
           match
             .slice(isPatternInternal ? 0 : 1, match.indexOf(isMDI ? "}" : " "))
             .trim()
         );
+
+    const canaryReactComponents = getCanaryReactImports(codeSnippet);
+    if (canaryReactComponents.length > 0 && tag === "Ic") {
+      matches = matches.filter(
+        (match) => !canaryReactComponents.includes(match)
+      );
+    }
+    return matches;
   };
 
   // Helper function to sort and remove duplicates
@@ -344,20 +400,35 @@ export const createReactAppTsx = (
   // Conditionally render "return(" in the returned output string
   const returnStatement = containsReturn ? "" : "return (";
 
-  let importedICDSComponents;
-  if (sortedICDSComponents.length > 3) {
-    importedICDSComponents = `
-  ${sortedICDSComponents.join(",\n  ")}\n`;
-  } else {
-    importedICDSComponents = `${sortedICDSComponents.join(", ")} `;
-  }
+  const formatImports = (array: string[]) => {
+    if (array.length > 3) {
+      return `\n  ${array.join(",\n  ")}\n`;
+    }
+    if (array.length === 0) {
+      return "";
+    }
+    return `${array.join(", ")} `;
+  };
+  const importedICDSComponents = formatImports(sortedICDSComponents);
+  const importedCanaryComponents = formatImports(
+    getCanaryReactImports(codeSnippet).length > 0
+      ? getCanaryReactImports(codeSnippet).sort()
+      : []
+  );
 
   return `${reactImportStatement}${
     reactRouterImports.length > 0
       ? `\nimport { ${reactRouterImports.join(", ")} } from 'react-router-dom';`
       : ""
+  }${
+    importedICDSComponents.length > 0
+      ? `\nimport { ${importedICDSComponents}} from '@ukic/react';`
+      : ""
+  }${
+    importedCanaryComponents.length > 0
+      ? `\nimport { ${importedCanaryComponents}} from '@ukic/canary-react';`
+      : ""
   }
-import { ${importedICDSComponents}} from '@ukic/react';
 ${
   fileExtension === "tsx" && isPattern && getIcTypes.length > 0
     ? `import type { ${getIcTypes.join(", ")} } from '@ukic/web-components';`

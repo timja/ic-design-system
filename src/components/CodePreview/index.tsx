@@ -245,13 +245,14 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
 
   // need to account for if the code starts with styling as opposed to a tag
 
-  const formatLines = (
-    lines: string[] | undefined,
-    snippet: Snippet,
-    longCodeIndex: number
-  ) => {
-    const formatTabs = (codeSnippet: Snippet, index: number) => {
+  const formatLines = (snippet: Snippet | string, longCodeIndex?: number) => {
+    const formatWhiteSpace = (
+      codeSnippet: Snippet | string,
+      index?: number
+    ) => {
       if (
+        index &&
+        typeof codeSnippet !== "string" &&
         selectedTab === "React" &&
         Array.isArray(codeSnippet.snippets.long) &&
         codeSnippet.snippets.long[index].snippet === "{shortCode}"
@@ -260,12 +261,12 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
       }
       return `\t\t`;
     };
-
+    const lines = String(snippet).split("\n");
     const newLines = lines ? [...lines] : [];
     if (newLines.length > 0) {
-      for (let i = 1; i < newLines.length; i += 1) {
-        const tabs = formatTabs(snippet, longCodeIndex);
-        newLines[i] = `\t${selectedTab === "Web component" ? `` : tabs}${
+      for (let i = 1; i < newLines.length + 1; i += 1) {
+        const tabs = formatWhiteSpace(snippet, longCodeIndex);
+        newLines[i] = `${selectedTab === "Web component" ? `\t` : tabs}${
           newLines[i]
         }`;
       }
@@ -297,6 +298,10 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
     } else {
       codeSnippet = snippet.snippets.short;
     }
+    console.log({
+      longCode: createWebComponentsIndexHTML(longCode),
+      lines: createWebComponentsIndexHTML(formatLines(longCode)),
+    });
 
     return {
       longCode: createWebComponentsIndexHTML(longCode),
@@ -311,8 +316,7 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
     if (type !== "pattern") shortCodeSnippet = snippet.snippets.short;
 
     shortCodeSnippet = formatLines(
-      shortCodeSnippet?.split("\n"),
-      snippet,
+      shortCodeSnippet ? shortCodeSnippet : "error",
       longCodeIndex
     );
 

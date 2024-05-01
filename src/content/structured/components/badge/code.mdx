@@ -38,18 +38,22 @@ export const snippetsDefault = [
     technology: "Web component",
     snippets: {
       short: `<ic-button variant="secondary">
-  <ic-badge text-label="1000" max-number="99" slot="badge" variant="info">
-  </ic-badge>
+  <ic-badge
+    text-label="1000"
+    max-number="99"
+    slot="badge"
+    variant="info"
+  ></ic-badge>
   Coffee orders
 </ic-button>`,
       long: `.button-container {
     padding: 16px;
-    }
-  </style>
-  <body>
-    <div class="button-container">
-      {shortCode}
-    </div>`,
+  }
+</style>
+<body>
+  <div class="button-container">
+    {shortCode}
+  </div>`,
     },
   },
   {
@@ -832,26 +836,38 @@ export const snippetsHideBadge = [
         {
           language: "Typescript",
           snippet: `const [showBadge, setShowBadge] = useState<boolean>(false);
-    const handleShowHideBadge = () => {
-      setShowBadge(!showBadge);
-    };
-    return (
-      <div style={{padding:"16px"}}>
-        {shortCode}
-      </div>
-    )`,
+  const handleShowHideBadge = () => {
+    setShowBadge(!showBadge);
+  };
+  const useStyles = createUseStyles({
+    parentContainer: {
+      padding: "16px",
+    },
+  });
+  const classes = useStyles();
+  return (
+    <div className={classes.parentContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
         {
           language: "Javascript",
           snippet: `const [showBadge, setShowBadge] = useState(false);
-    const handleShowHideBadge = () => {
-      setShowBadge(!showBadge);
-    };
-    return (
-      <div style={{padding:"16px"}}>
-        {shortCode}
-      </div>
-    )`,
+  const handleShowHideBadge = () => {
+    setShowBadge(!showBadge);
+  };
+  const useStyles = createUseStyles({
+    parentContainer: {
+      padding: "16px",
+    },
+  });
+  const classes = useStyles();
+  return (
+    <div className={classes.parentContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
       ],
     },
@@ -906,13 +922,13 @@ export const snippetsAccessibleLabel = [
   Coffee orders
 </ic-button>`,
       long: `.button-container {
-    padding: 16px;
-    }
-  </style>
-  <body>
-    <div class="button-container">
-      {shortCode}
-    </div>`,
+  padding: 16px;
+}
+</style>
+<body>
+  <div class="button-container">
+    {shortCode}
+  </div>`,
     },
   },
   {

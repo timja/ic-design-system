@@ -1,4 +1,5 @@
-const path = require(`path`);
+const path = require("path");
+const fs = require("fs");
 // eslint-disable-next-line import/no-extraneous-dependencies
 const webpack = require("webpack");
 const pagesConfig = require("./src/config");
@@ -236,6 +237,11 @@ exports.createResolvers = ({ createResolvers }) => {
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
+    resolve: {
+      fallback: {
+        fs: false,
+      },
+    },
     plugins: [
       /**
        * See line 203 of:
@@ -276,4 +282,42 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       ),
     ],
   });
+};
+
+exports.sourceNodes = () => {
+  // Find the name of the components in the @ukic/canary-* folders
+  const canaryReact = path.resolve(
+    __dirname,
+    "node_modules/@ukic/canary-react/dist/components.d.ts"
+  );
+  const canaryWebComponents = path.resolve(
+    __dirname,
+    "node_modules/@ukic/canary-web-components/dist/collection/components"
+  );
+
+  // Get the names of components in the canary-web-components package
+  const canaryWebComponentsNames = fs
+    .readdirSync(canaryWebComponents, { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name);
+
+  // Read the contents of the canaryReact file
+  const canaryReactContent = fs.readFileSync(canaryReact, "utf8");
+  const regex = /export declare const (\w+):/g;
+  let match;
+  const canaryReactComponentNames = [];
+
+  while ((match = regex.exec(canaryReactContent)) !== null) {
+    canaryReactComponentNames.push(match[1]);
+  }
+
+  const data = {
+    canaryReactComponentNames: canaryReactComponentNames,
+    canaryWebComponentsNames: canaryWebComponentsNames,
+  };
+
+  fs.writeFileSync(
+    path.resolve(__dirname, "./src/data/canary-component-names.json"),
+    JSON.stringify(data)
+  );
 };
