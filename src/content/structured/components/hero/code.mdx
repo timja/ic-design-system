@@ -30,13 +30,19 @@ export const snippets = [
       short: `<ic-hero
   heading="Everything I brew, I brew it for you"
   subheading="This news is hot off the French press."
+  class="hero"
 >
   <ic-button variant="primary" slot="interaction">Explore</ic-button>
-  <ic-button variant="secondary" slot="interaction"
-    >Check out our new drinks</ic-button
-  >
+  <ic-button variant="secondary" slot="interaction">
+    Check out our new drinks
+  </ic-button>
 </ic-hero>`,
-      long: `{shortCode}`,
+      long: `.hero {
+      height: fit-content;
+    }
+  </style>
+  <body>
+    {shortCode}`,
     },
   },
   {
@@ -96,29 +102,20 @@ export const snippetsCentre = [
       short: `<ic-hero
   heading="Everything I brew, I brew it for you"
   subheading="This news is hot off the French press."
->
-  <ic-button variant="primary" slot="interaction">Explore</ic-button>
-  <ic-button variant="secondary" slot="interaction"
-    >Check out our new drinks</ic-button
-  >
-</ic-hero>`,
-      long: `{shortCode}`,
-    },
-  },
-  {
-    technology: "React",
-    snippets: {
-      short: `<ic-hero
-  heading="Everything I brew, I brew it for you"
-  subheading="This news is hot off the French press."
   aligned="center"
+  class="hero"
 >
   <ic-button variant="primary" slot="interaction">Explore</ic-button>
-  <ic-button variant="secondary" slot="interaction"
-    >Check out our new drinks</ic-button
-  >
+  <ic-button variant="secondary" slot="interaction">
+    Check out our new drinks
+  </ic-button>
 </ic-hero>`,
-      long: `{shortCode}`,
+      long: `.hero {
+      height: fit-content;
+    }
+  </style>
+  <body>
+    {shortCode}`,
     },
   },
   {
@@ -128,6 +125,7 @@ export const snippetsCentre = [
   heading="Everything I brew, I brew it for you"
   subheading="This news is hot off the French press."
   aligned="center"
+  class={classes.hero}
 >
   <IcButton variant="primary" slot="interaction">
     Explore
@@ -139,11 +137,27 @@ export const snippetsCentre = [
       long: [
         {
           language: "Typescript",
-          snippet: `{shortCode}`,
+          snippet: `  const useStyles = createUseStyles({
+    hero: {
+      height: "fit-content",
+    },
+  });
+  const classes = useStyles();
+  return (
+    {shortCode}
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `{shortCode}`,
+          snippet: `  const useStyles = createUseStyles({
+    hero: {
+      height: "fit-content",
+    },
+  });
+  const classes = useStyles();
+  return (
+    {shortCode}
+  )`,
         },
       ],
     },
@@ -176,13 +190,19 @@ export const snippetsContentCentre = [
   subheading="This news is hot off the French press."
   aligned="center"
   content-aligned="center"
+  class="hero"
 >
   <ic-button variant="primary" slot="interaction">Explore</ic-button>
-  <ic-button variant="secondary" slot="interaction"
-    >Check out our new drinks</ic-button
-  >
+  <ic-button variant="secondary" slot="interaction">
+    Check out our new drinks
+  </ic-button>
 </ic-hero>`,
-      long: `{shortCode}`,
+      long: `.hero {
+      height: fit-content;
+    }
+  </style>
+  <body>
+    {shortCode}`,
     },
   },
   {
@@ -193,6 +213,7 @@ export const snippetsContentCentre = [
   subheading="This news is hot off the French press."
   aligned="center"
   contentAligned="center"
+  class={classes.hero}
 >
   <IcButton variant="primary" slot="interaction">
     Explore
@@ -204,11 +225,27 @@ export const snippetsContentCentre = [
       long: [
         {
           language: "Typescript",
-          snippet: `{shortCode}`,
+          snippet: `  const useStyles = createUseStyles({
+    hero: {
+      height: "fit-content",
+    },
+  });
+  const classes = useStyles();
+  return (
+    {shortCode}
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `{shortCode}`,
+          snippet: `  const useStyles = createUseStyles({
+    hero: {
+      height: "fit-content",
+    },
+  });
+  const classes = useStyles();
+  return (
+    {shortCode}
+  )`,
         },
       ],
     },
@@ -241,11 +278,17 @@ export const snippetsSmall = [
   heading="New coffee launches 14 September 2022"
   subheading="Brand new flavours now available! Irresistible. Caramel. Decadence. Sugary."
   size="small"
+  class="hero"
 >
   <ic-button variant="primary" slot="interaction" size="small">Order now</ic-button>
   <ic-button variant="secondary" slot="interaction" size="small">Submit new flavour</ic-button>
 </ic-hero>`,
-      long: `{shortCode}`,
+      long: `.hero {
+      height: fit-content;
+    }
+  </style>
+  <body>
+    {shortCode}`,
     },
   },
   {
@@ -255,6 +298,7 @@ export const snippetsSmall = [
   heading="New coffee launches 14 September 2022"
   subheading="Brand new flavours now available! Irresistible. Caramel. Decadence. Sugary."
   size="small"
+  class={classes.hero}
 >
   <IcButton variant="primary" slot="interaction" size="small">
     Order now
@@ -266,11 +310,27 @@ export const snippetsSmall = [
       long: [
         {
           language: "Typescript",
-          snippet: `{shortCode}`,
+          snippet: `  const useStyles = createUseStyles({
+    hero: {
+      height: "fit-content",
+    },
+  });
+  const classes = useStyles();
+  return (
+    {shortCode}
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `{shortCode}`,
+          snippet: `  const useStyles = createUseStyles({
+    hero: {
+      height: "fit-content",
+    },
+  });
+  const classes = useStyles();
+  return (
+    {shortCode}
+  )`,
         },
       ],
     },
@@ -303,6 +363,7 @@ export const snippetsSecondHeadingSearch = [
   subheading="This news is hot off the French press."
   secondary-heading="The classics"
   secondary-subheading="Try our original flavours."
+  class="hero"
 >
   <ic-search-bar
     slot="interaction"
@@ -310,7 +371,12 @@ export const snippetsSecondHeadingSearch = [
     hide-label="true"
   ></ic-search-bar>
 </ic-hero>`,
-      long: `{shortCode}`,
+      long: `.hero {
+      height: fit-content;
+    }
+  </style>
+  <body>
+    {shortCode}`,
     },
   },
   {
@@ -321,17 +387,34 @@ export const snippetsSecondHeadingSearch = [
   subheading="This news is hot off the French press."
   secondaryHeading="The classics" 
   secondarySubheading="Try our original flavours."
+  class={classes.hero}
 >
   <IcSearchBar slot="interaction" label="Search for coffee" hideLabel/>
 </IcHero>`,
       long: [
         {
           language: "Typescript",
-          snippet: `{shortCode}`,
+          snippet: `  const useStyles = createUseStyles({
+    hero: {
+      height: "fit-content",
+    },
+  });
+  const classes = useStyles();
+  return (
+    {shortCode}
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `{shortCode}`,
+          snippet: `  const useStyles = createUseStyles({
+    hero: {
+      height: "fit-content",
+    },
+  });
+  const classes = useStyles();
+  return (
+    {shortCode}
+  )`,
         },
       ],
     },
@@ -361,6 +444,7 @@ export const snippetsCard = [
   card-heading="Out now" 
   card-message="Try our new strawberry infused tea." 
   aligned="full-width"
+  class="hero"
 >
   <ic-button variant="primary" slot="interaction">Explore</ic-button>
   <ic-button variant="secondary" slot="interaction">Check out our new drinks</ic-button>
@@ -376,6 +460,9 @@ export const snippetsCard = [
       color: var(--ic-theme-text);
       width: 300px;
     }
+    .hero {
+      height: fit-content;
+    }
   </style>
   <body>
     {shortCode}`,
@@ -390,6 +477,7 @@ export const snippetsCard = [
   cardHeading="Out now" 
   cardMessage="Try our new strawberry infused tea." 
   aligned="full-width"
+  class={classes.hero}
 >
   <IcButton variant="primary" slot="interaction">Explore</IcButton>
   <IcButton variant="secondary" slot="interaction">Check out our new drinks</IcButton>
@@ -408,6 +496,9 @@ export const snippetsCard = [
     color: "var(--ic-theme-text)",
     width: "300px",
   },
+  hero: {
+    height: "fit-content",
+  },
 });
 const classes = useStyles();
 return (
@@ -420,6 +511,9 @@ return (
   heroCard: {
     color: "var(--ic-theme-text)",
     width: "300px",
+  },
+  hero: {
+    height: "fit-content",
   },
 });
 const classes = useStyles();
@@ -469,6 +563,7 @@ export const snippetsImage = [
   heading="Everything I brew, I brew it for you"
   subheading="This news is hot off the French press."
   aligned="full-width"
+  class="hero"
 >
   <ic-button variant="primary" slot="interaction">Explore</ic-button>
   <ic-button variant="secondary" slot="interaction">Check out our new drinks</ic-button>
@@ -496,6 +591,9 @@ export const snippetsImage = [
       long: `.card-image {
   width: 300px;
 }
+.hero {
+  height: fit-content;
+}
 </style>
 <body>
   {shortCode}`,
@@ -508,6 +606,7 @@ export const snippetsImage = [
     heading="Everything I brew, I brew it for you"
     subheading="This news is hot off the French press."
     aligned="full-width"
+    class={classes.hero}
   >
     <IcButton variant="primary" slot="interaction">Explore</IcButton>
     <IcButton variant="secondary" slot="interaction">Check out our new drinks</IcButton>
@@ -539,6 +638,9 @@ export const snippetsImage = [
   cardImage: {
     width: "300px",
   },
+  hero: {
+    height: "fit-content",
+  },
 });
 const classes = useStyles();
 return (
@@ -550,6 +652,9 @@ return (
           snippet: `const useStyles = createUseStyles({
   cardImage: {
     width: "300px",
+  },
+  hero: {
+    height: "fit-content",
   },
 });
 const classes = useStyles();

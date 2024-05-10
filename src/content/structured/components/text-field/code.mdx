@@ -31,12 +31,12 @@ export const snippetsDefault = [
     label="What is your favourite coffee?" 
     placeholder="Please enter…" 
     helper-text="Such as Arabica, Robusta or Liberica">
-</ic-text-field>
+</ic-text-field>`,
+      long: `{shortCode}
 <script>
   const textField = document.querySelector('ic-text-field');
   textfield.addEventListenter('icChange', (ev) => console.log(ev.detail.value));
 </script>`,
-      long: `{shortCode}`,
     },
   },
   {
@@ -257,12 +257,12 @@ export const snippetsSmall = [
   placeholder="Please enter…" 
   size="small"
 >
-</ic-text-field>
+</ic-text-field>`,
+      long: `{shortCode}
 <script>
   const textField = document.querySelector('ic-text-field');
   textfield.addEventListenter('icChange', (ev) => console.log(ev.detail.value));
 </script>`,
-      long: `{shortCode}`,
     },
   },
   {

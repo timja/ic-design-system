@@ -80,7 +80,8 @@ export const hideFirstLast = [
       short: `<ic-pagination 
   hide-first-and-last-page-button="true"
   pages="15"
-  ></ic-pagination>`,
+>
+</ic-pagination>`,
       long: `{shortCode}`,
     },
   },
@@ -151,21 +152,34 @@ export const appearance = [
     technology: "Web component",
     snippets: {
       short: `<ic-pagination appearance="dark" pages="15"></ic-pagination>
-<ic-pagination appearance="light" pages="15"></ic-pagination>`,
-      long: `{shortCode}`,
+<ic-pagination appearance="light" pages="15" class="bg"></ic-pagination>`,
+      long: `.bg {
+      background-color: black
+    }
+  </style>
+  <body>
+    {shortCode}`,
     },
   },
   {
     technology: "React",
     snippets: {
       short: `<IcPagination appearance="dark" pages={15} />
-<IcPagination appearance="light" pages={15} />`,
+<IcPagination appearance="light" pages={15} class={classes.bg} />`,
       long: [
         {
           language: "Typescript",
-          snippet: `<>
+          snippet: `const useStyles = createUseStyles({
+  bg: {
+    backgroundColor: "black"
+  }
+});
+const classes = useStyles();
+return (
+          <>
             {shortCode}
-        </>`,
+        </>
+)`,
         },
         {
           language: "Javascript",
@@ -199,7 +213,8 @@ export const boundaryAdjacent = [
   adjacent-count="2"
   boundary-count="2"
   pages="15"
-></ic-pagination>`,
+>
+</ic-pagination>`,
       long: `{shortCode}`,
     },
   },

@@ -42,10 +42,12 @@ export const snippets = [
   {
     technology: "Web component",
     snippets: {
-      short: `<ic-page-header heading="Latte recipe"
+      short: `<ic-page-header
+    heading="Latte recipe"
     subheading="A Latte is a popular Italian coffee, made with espresso, steamed milk and a thin layer of foam."
-    reverse-order="true" >
-  <ic-chip slot="heading-adornment" label="BETA" size="large" />
+    reverse-order="true"
+>
+  <ic-chip slot="heading-adornment" label="BETA" size="large"></ic-chip>
   <ic-button slot="actions" variant="primary">
     Create coffee
   </ic-button>
@@ -53,20 +55,20 @@ export const snippets = [
     Filter coffee
   </ic-button>
   <ic-stepper slot="stepper">
-    <ic-step step-title="Warm kettle" step-type="completed" />
+    <ic-step step-title="Warm kettle" step-type="completed"></ic-step>
     <ic-step
       step-title="Warm milk"
       step-subtitle="Optional"
       step-type="completed"
-    />
-    <ic-step step-title="Pour milk" step-type="current" />
+    ></ic-step>
+    <ic-step step-title="Pour milk" step-type="current" ></ic-step>
   </ic-stepper>
   <ic-text-field
     slot="input"
     placeholder="Search for ingredients…"
     label="Input"
     hide-label="true"
-  />
+  ></ic-text-field>
 </ic-page-header>`,
       long: `{shortCode}`,
     },
@@ -506,13 +508,13 @@ export const withReactRouter = [
       placeholder="Search for ingredients…"
       label="Input" 
       hideLabel 
-      style={{'@media (maxWidth: 576px)':{width: "280px"}}}
+      class={classes.text}
     />
   </IcPageHeader>
   <IcSectionContainer>
     <Routes>
-      <Route path="/" element={() => <IcTypography>This page is about our Latte making methods</IcTypography>}/>
-      <Route path="/favourites" element={() => <IcTypography>This page is about the ingredients used in our Latte</IcTypography>}/>
+      <Route path="/" element={<IcTypography>This page is about our Latte making methods</IcTypography>}/>
+      <Route path="/favourites" element={<IcTypography>This page is about the ingredients used in our Latte</IcTypography>}/>
     </Routes>
   </IcSectionContainer>
 </MemoryRouter>
@@ -520,11 +522,31 @@ export const withReactRouter = [
       long: [
         {
           language: "Typescript",
-          snippet: `{shortCode}`,
+          snippet: `const useStyles = createUseStyles({
+            text: {
+              '@media (max-width: 576px)': {
+              width: '280px;'
+              }
+            }
+            })
+            const classes = useStyles();
+            return(
+          {shortCode}
+          )`,
         },
         {
           language: "Javascript",
-          snippet: `{shortCode}`,
+          snippet: `const useStyles = createUseStyles({
+            text: {
+              '@media (max-width: 576px)': {
+              width: '280px;'
+              }
+            }
+            })
+            const classes = useStyles();
+            return(
+          {shortCode}
+          )`,
         },
       ],
     },

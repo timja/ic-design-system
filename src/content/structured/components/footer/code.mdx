@@ -374,8 +374,8 @@ export const withReactRouter = [
     snippets: {
       short: `<MemoryRouter initialEntries={["/"]}>
   <Routes>
-    <Route path="/" element={() => <IcTypography>This is the accessibility page</IcTypography>} />
-    <Route path="/Styles" element={() => <IcTypography>This page is about styles</IcTypography>} />
+    <Route path="/" element={<IcTypography>This is the accessibility page</IcTypography>} />
+    <Route path="/Styles" element={<IcTypography>This page is about styles</IcTypography>} />
   </Routes>
   <IcFooter description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, please get in touch." caption="This information is exempt under the Freedom of Information Act 2000 (FOIA) and may be exempt under other UK information legislation." 
   > 
@@ -404,6 +404,7 @@ export const withReactRouter = [
     color: "var(--ic-theme-text)"
   },
 });
+const classes = useStyles();
 return (
   {shortCode}
 )`,

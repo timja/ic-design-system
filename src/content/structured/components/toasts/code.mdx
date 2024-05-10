@@ -37,13 +37,13 @@ export const defaultSnippet = [
   <ic-toast id="toast-01" heading="Your coffee is ready"></ic-toast>
 </ic-toast-region>`,
       long: `{shortCode}
-    <script>
-      const toastRegion = document.querySelector("ic-toast-region");
-      function displayToast() {
-        var toast = document.querySelector("#toast-01");
-        toastRegion.openToast = toast;
-      }
-    </script>`,
+<script>
+  const toastRegion = document.querySelector("ic-toast-region");
+  function displayToast() {
+    var toast = document.querySelector("#toast-01");
+    toastRegion.openToast = toast;
+  }
+</script>`,
     },
   },
   {
@@ -371,19 +371,28 @@ export const withVariantSnippet = [
 <ic-toast-region>
   <ic-toast variant="success" id="toast-02" heading="Your coffee is ready" message="Please dismiss and collect"></ic-toast>
 </ic-toast-region>`,
-      long: `{shortCode}  
-<script>
-  const toastRegion = document.querySelector("ic-toast-region");
-  function displayToast() {
-    const successToast = document.querySelector("#toast-02");
-    toastRegion.openToast = successToast;
-  }
-</script>`,
+      long: `{shortCode}
+    <script>
+      const toastRegion = document.querySelector("ic-toast-region");
+      function displayToast() {
+        const successToast = document.querySelector("#toast-02");
+        toastRegion.openToast = successToast;
+      }
+    </script>`,
     },
   },
   {
     technology: "React",
     snippets: {
+      short: `<IcButton onClick={handleClick}>Display success toast</IcButton>
+<IcToastRegion ref={toastRegionEl}>
+  <IcToast
+    heading='Your coffee is ready'
+    ref={toastEl}
+    message='Please dismiss and collect'
+    variant='success'
+  />
+</IcToastRegion>`,
       short: `<IcButton onClick={handleClick}>Display success toast</IcButton>
 <IcToastRegion ref={toastRegionEl}>
   <IcToast

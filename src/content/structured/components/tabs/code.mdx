@@ -363,7 +363,14 @@ export const light = [
   <ic-tab-panel>Tab Two - Method</ic-tab-panel>
   <ic-tab-panel>Tab Three - History</ic-tab-panel>
 </ic-tab-context>`,
-      long: `{shortCode}`,
+      long: `.container {
+    background-color: #2c2f34;
+    }
+  </style>
+  <body>
+    <div class="container">
+      {shortCode}
+    </div>`,
     },
   },
   {
@@ -382,11 +389,31 @@ export const light = [
       long: [
         {
           language: "Typescript",
-          snippet: `{shortCode}`,
+          snippet: `  const useStyles = createUseStyles({
+    container: {
+      backgroundColor: "#2c2f34",
+    },
+  });
+  const classes = useStyles();
+  return (
+    <div className={classes.container}>
+      {shortCode}
+    </div>
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `{shortCode}`,
+          snippet: `  const useStyles = createUseStyles({
+    container: {
+      backgroundColor: "#2c2f34",
+    },
+  });
+  const classes = useStyles();
+  return (
+    <div className={classes.container}>
+      {shortCode}
+    </div>
+  )`,
         },
       ],
     },

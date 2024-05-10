@@ -35,7 +35,8 @@ export const snippetsDefault = [
       short: `<ic-toggle-button
   id="toggle-btn"
   label="Switch to oat milk"
-></ic-toggle-button>`,
+>
+</ic-toggle-button>`,
       long: `.toggle-btn-container {
       padding: 16px;
     }
@@ -62,31 +63,31 @@ export const snippetsDefault = [
       long: [
         {
           language: "Typescript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    padding: "16px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      padding: "16px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    padding: "16px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      padding: "16px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
       ],
     },
@@ -119,21 +120,25 @@ export const snippetsOtherStates = [
       short: `<ic-toggle-button
   label="Switch to oat milk"
   disabled="true"
-></ic-toggle-button>
+>
+</ic-toggle-button>
 <ic-toggle-button
   label="Switch to oat milk"
   disabled="true"
   toggle-checked="true"
-></ic-toggle-button>
+>
+</ic-toggle-button>
 <ic-toggle-button
   label="Switch to oat milk"
   loading="true"
-></ic-toggle-button>
+>
+</ic-toggle-button>
 <ic-toggle-button
   label="Switch to oat milk"
   loading="true"
   toggle-checked="true"
-></ic-toggle-button>`,
+>
+</ic-toggle-button>`,
       long: `.toggle-btn-container {
       display: flex;
       flex-wrap: wrap;
@@ -157,37 +162,37 @@ export const snippetsOtherStates = [
       long: [
         {
           language: "Typescript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    display: "flex",
-    flexWrap: "wrap",
-    padding: "16px",
-    gap: "8px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      display: "flex",
+      flexWrap: "wrap",
+      padding: "16px",
+      gap: "8px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    display: "flex",
-    flexWrap: "wrap",
-    padding: "16px",
-    gap: "8px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      display: "flex",
+      flexWrap: "wrap",
+      padding: "16px",
+      gap: "8px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
       ],
     },
@@ -242,31 +247,31 @@ export const snippetsWithIcon = [
       long: [
         {
           language: "Typescript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    padding: "16px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      padding: "16px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    padding: "16px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      padding: "16px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
       ],
     },
@@ -297,12 +302,14 @@ export const snippetsSizing = [
       short: `<ic-toggle-button
   label="Switch to oat milk"
   size="small"
-></ic-toggle-button>
+>
+</ic-toggle-button>
 <ic-toggle-button label="Switch to oat milk"></ic-toggle-button>
 <ic-toggle-button
   label="Switch to oat milk"
   size="large"
-></ic-toggle-button>`,
+>
+</ic-toggle-button>`,
       long: `.toggle-btn-container {
       display: flex;
       flex-wrap: wrap;
@@ -325,37 +332,37 @@ export const snippetsSizing = [
       long: [
         {
           language: "Typescript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    display: "flex",
-    flexWrap: "wrap",
-    padding: "16px",
-    gap: "8px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      display: "flex",
+      flexWrap: "wrap",
+      padding: "16px",
+      gap: "8px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    display: "flex",
-    flexWrap: "wrap",
-    padding: "16px",
-    gap: "8px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      display: "flex",
+      flexWrap: "wrap",
+      padding: "16px",
+      gap: "8px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
       ],
     },
@@ -396,31 +403,31 @@ export const snippetsWithBadge = [
       long: [
         {
           language: "Typescript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    padding: "16px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      padding: "16px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    padding: "16px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      padding: "16px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
       ],
     },
@@ -442,18 +449,21 @@ export const snippetsDark = [
       short: `<ic-toggle-button
   label="Switch to oat milk"
   appearance="dark"
-></ic-toggle-button>
+>
+</ic-toggle-button>
 <ic-toggle-button
   label="Switch to oat milk"
   appearance="dark"
   loading="true"
-></ic-toggle-button>
+>
+</ic-toggle-button>
 <ic-toggle-button
   label="Switch to oat milk"
   appearance="dark"
   loading="true"
   toggle-checked="true"
-></ic-toggle-button>`,
+>
+</ic-toggle-button>`,
       long: `.toggle-btn-container {
       display: flex;
       flex-wrap: wrap;
@@ -481,37 +491,37 @@ export const snippetsDark = [
       long: [
         {
           language: "Typescript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    display: "flex",
-    flexWrap: "wrap",
-    padding: "16px",
-    gap: "8px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      display: "flex",
+      flexWrap: "wrap",
+      padding: "16px",
+      gap: "8px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    display: "flex",
-    flexWrap: "wrap",
-    padding: "16px",
-    gap: "8px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      display: "flex",
+      flexWrap: "wrap",
+      padding: "16px",
+      gap: "8px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
       ],
     },
@@ -566,39 +576,39 @@ export const snippetsLight = [
       long: [
         {
           language: "Typescript",
-          snippet: `const useStyles = createUseStyles({
-  darkBackground: {
-    display: "flex",
-    flexWrap: "wrap",
-    backgroundColor: "#2c2f34",
-    padding: "16px",
-    gap: "8px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.darkBackground}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    darkBackground: {
+      display: "flex",
+      flexWrap: "wrap",
+      backgroundColor: "#2c2f34",
+      padding: "16px",
+      gap: "8px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.darkBackground}>
+      {shortCode}
+    </div>
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `const useStyles = createUseStyles({
-  darkBackground: {
-    display: "flex",
-    flexWrap: "wrap",
-    backgroundColor: "#2c2f34",
-    padding: "16px",
-    gap; "8px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.darkBackground}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    darkBackground: {
+      display: "flex",
+      flexWrap: "wrap",
+      backgroundColor: "#2c2f34",
+      padding: "16px",
+      gap; "8px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.darkBackground}>
+      {shortCode}
+    </div>
+  )`,
         },
       ],
     },
@@ -661,31 +671,31 @@ export const snippetsFullWidth = [
       long: [
         {
           language: "Typescript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    padding: "16px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      padding: "16px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    padding: "16px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      padding: "16px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
       ],
     },
@@ -814,31 +824,31 @@ export const snippetsIconOnly = [
       long: [
         {
           language: "Typescript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    padding: "16px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      padding: "16px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    padding: "16px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      padding: "16px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
       ],
     },
@@ -967,31 +977,31 @@ export const snippetsIconRight = [
       long: [
         {
           language: "Typescript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    padding: "16px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      padding: "16px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    padding: "16px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      padding: "16px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
       ],
     },
@@ -1116,31 +1126,31 @@ export const snippetsIconTopGroup = [
       long: [
         {
           language: "Typescript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    padding: "16px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      padding: "16px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
         {
           language: "Javascript",
-          snippet: `const useStyles = createUseStyles({
-  toggleBtnContainer: {
-    padding: "16px",
-  },
-});
-const classes = useStyles();
-return ( 
-  <div className={classes.toggleBtnContainer}>
-    {shortCode}
-  </div>
-)`,
+          snippet: `  const useStyles = createUseStyles({
+    toggleBtnContainer: {
+      padding: "16px",
+    },
+  });
+  const classes = useStyles();
+  return ( 
+    <div className={classes.toggleBtnContainer}>
+      {shortCode}
+    </div>
+  )`,
         },
       ],
     },

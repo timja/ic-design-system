@@ -431,6 +431,19 @@ export const snippetsProgrammatic = [
   </ic-button>
 </ic-tooltip>`,
       long: `{shortCode}
+    <script>
+      let display = true;
+      document
+        .querySelector("#clickMe")
+        .addEventListener("click", handleDisplay);
+      const tooltip = document.querySelector("#targetTooltip");
+      function handleDisplay() {
+        tooltip.displayTooltip(display, display);
+        display = !display;
+      }
+    </script>`,
+</ic-tooltip>`,
+      long: `{shortCode}
   <script>
     let display = true;
     document
