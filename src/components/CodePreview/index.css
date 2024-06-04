@@ -6,6 +6,9 @@
   justify-content: space-between;
 }
 
+.button-class {
+  margin: auto var(--ic-space-xs) auto 0;
+}
 .toggle-button-container {
   margin: auto var(--ic-space-xs) auto 0;
 }

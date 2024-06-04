@@ -95,63 +95,43 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 
   return (
     <>
-      {show && (
-        <Highlight
-          {...defaultProps}
-          code={code}
-          language="jsx"
-          theme={undefined}
-        >
-          {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre className={clsx(className, "snippet")} style={style}>
-              <code>
-                {tokens.map((line, i) => (
-                  <div {...getLineProps({ line, key: i })}>
-                    {line.map((token, key) => (
-                      <span {...getTokenProps({ token, key })} />
-                    ))}
-                  </div>
-                ))}
-              </code>
-            </pre>
-          )}
-        </Highlight>
-      )}
       <div className="snippet-container">
-        {type === "pattern" && (
+        
+      <div className="code-actions">
+        
+        {/* //add toggle-button-container here */}
+          {showStackblitzBtn && projectTitle !== undefined && (
+            <StackblitzButton
+              codeSnippet={longCode}
+              isWebComponents={isWebComponents}
+              projectTitle={projectTitle}
+              projectDescription={projectDescription}
+              isJSX={selectedLanguage === "Javascript"}
+            />
+          )}
           <IcButton
-            variant="tertiary"
+            aria-label={isLargeViewport ? "" : "Copy code"}
+            variant={isLargeViewport ? "tertiary" : "icon"}
             size={isLargeViewport ? "small" : "default"}
             appearance="dark"
-            onClick={() => setShow(!show)}
+            onClick={() => {
+              navigator.clipboard.writeText(code);
+              document
+                .querySelector<HTMLIcToastElement>("#copy-to-clipboard-toast")
+                ?.setVisible();
+            }}
           >
-            {!show ? "Show" : "Hide"} code
             <SlottedSVG
-              slot="right-icon"
+              path={mdiContentCopy}
+              slot={isLargeViewport ? "left-icon" : undefined}
               viewBox="0 0 24 24"
               width="24"
               height="24"
-              path={!show ? mdiMenuDown : mdiMenuUp}
             />
+            {isLargeViewport && "Copy code"}
           </IcButton>
-        )}
-        {type !== "pattern" && (
-          <IcButton
-            variant="tertiary"
-            size={isLargeViewport ? "small" : "default"}
-            appearance="dark"
-            onClick={() => setShowMore(!showMore)}
-          >
-            Show {showMore ? "less" : "full"} code
-            <SlottedSVG
-              slot="right-icon"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              path={showMore ? mdiMenuUp : mdiMenuDown}
-            />
-          </IcButton>
-        )}
+        </div>
+
         <div className="code-actions">
           {showStackblitzBtn && projectTitle !== undefined && (
             <StackblitzButton
@@ -185,6 +165,28 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
           </IcButton>
         </div>
       </div>
+      {show && (
+        <Highlight
+          {...defaultProps}
+          code={code}
+          language="jsx"
+          theme={undefined}
+        >
+          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            <pre className={clsx(className, "snippet")} style={style}>
+              <code>
+                {tokens.map((line, i) => (
+                  <div {...getLineProps({ line, key: i })}>
+                    {line.map((token, key) => (
+                      <span {...getTokenProps({ token, key })} />
+                    ))}
+                  </div>
+                ))}
+              </code>
+            </pre>
+          )}
+        </Highlight>
+      )}
     </>
   );
 };
@@ -377,7 +379,7 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
           ))}
         {children}
       </div>
-      {snippets && (
+      {snippets && ( 
         <IcTabContext
           onIcTabSelect={tabSelectCallback}
           selectedTabIndex={
@@ -385,7 +387,45 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
           }
           ref={tabContextRef}
         >
+   
           <div className="link-zone">
+            <div className="button-class">
+            {type === "pattern" && (
+          <IcButton
+            variant="tertiary"
+            size={isLargeViewport ? "small" : "default"}
+            appearance="dark"
+            onClick={() => setShow(!show)}
+          >
+            {!show ? "Show" : "Hide"} code
+            <SlottedSVG
+              slot="right-icon"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              path={!show ? mdiMenuDown : mdiMenuUp}
+            />
+          </IcButton>
+        )}
+        {type !== "pattern" && (
+          <IcButton
+            variant="tertiary"
+            size={isLargeViewport ? "small" : "default"}
+            appearance="dark"
+            onClick={() => setShowMore(!showMore)}
+          >
+            Show {showMore ? "less" : "full"} code
+            <SlottedSVG
+              slot="right-icon"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              path={showMore ? mdiMenuUp : mdiMenuDown}
+            />
+          </IcButton>
+        )}
+            </div>
+
             <IcTabGroup inline label="Framework code snippets">
               {snippets.map((snippet, index) => (
                 <IcTab key={snippet.technology} tab-position={index}>
